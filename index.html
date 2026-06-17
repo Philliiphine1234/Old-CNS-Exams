@@ -96,17 +96,23 @@
     </div>
 
     <!-- ─── External Scripts ──────────────────────────────────────────── -->
-    <script src="questions.js"></script>
+    <script src="questions.js?v=3"></script>
     <script src="theme.js"></script>
 
     <!-- ─── Main Quiz Engine ──────────────────────────────────────────── -->
     <script>
+        // ─── Check if QUESTION_BANK loaded ──────────────────────────────
+        if (typeof QUESTION_BANK === 'undefined') {
+            alert('❌ Error: questions.js failed to load.');
+            console.error('QUESTION_BANK is not defined.');
+        } else {
+            console.log('✅ questions.js loaded successfully. Total questions:', QUESTION_BANK.length);
+        }
+
         // ─── QUIZ ENGINE ──────────────────────────────────────────────────────
-        // This is the same engine as before, but it now uses the global
-        // QUESTION_BANK loaded from questions.js.
 
         const state = {
-            allQuestions: QUESTION_BANK,
+            allQuestions: typeof QUESTION_BANK !== 'undefined' ? QUESTION_BANK : [],
             filteredQuestions: [],
             currentIndex: 0,
             selected: null,
@@ -146,15 +152,15 @@
         const subjectTabs = document.querySelectorAll('.subject-btn');
         const questionNav = $('questionNav');
 
-        // ─── Explanation Engine (same as before) ──────────────────────────────
-        function getDetailedExplanation(q) {
-            const text = q.text.toLowerCase();
-            const correct = q.options.find(o => o.label === q.answer);
-            const correctText = correct ? correct.text : '';
+        const LABELS = ['A', 'B', 'C', 'D', 'E'];
 
-            // (Full explanation logic from the previous version goes here)
-            // For brevity, I'm including a minimal version – but the full one is in the final file.
-            return `The correct answer is ${q.answer}: "${correctText}". This is the best choice because it accurately reflects the established principle. The other options are either incorrect or describe different structures/functions.`;
+        // ─── Explanation Engine ──────────────────────────────────────────────
+        function getDetailedExplanation(q) {
+            // If the question has a built-in explanation, use it
+            if (q.explanation) return q.explanation;
+            // Otherwise generate a fallback
+            const correctText = q.options[q.answer] || 'Unknown';
+            return `The correct answer is ${LABELS[q.answer]}: "${correctText}". This is the best choice because it accurately reflects the established principle. The other options are either incorrect or describe different structures/functions.`;
         }
 
         // ─── Shuffle ──────────────────────────────────────────────────────────
@@ -232,10 +238,10 @@
             if (index < 0 || index >= state.filteredQuestions.length) return;
             state.currentIndex = index;
             if (!state.results[index]) {
-                state.selected = state.userAnswers[index] || null;
+                state.selected = state.userAnswers[index] !== undefined ? state.userAnswers[index] : null;
                 state.answered = false;
             } else {
-                state.selected = state.userAnswers[index] || null;
+                state.selected = state.userAnswers[index] !== undefined ? state.userAnswers[index] : null;
                 state.answered = true;
             }
             renderQuestion();
@@ -257,24 +263,24 @@
             qMeta.textContent = q.meta || '';
 
             optionsContainer.innerHTML = '';
-            const letters = ['A', 'B', 'C', 'D', 'E'];
-            q.options.forEach(opt => {
+            q.options.forEach((optText, idx) => {
                 const div = document.createElement('div');
                 div.className = 'option-item';
-                div.dataset.label = opt.label;
+                div.dataset.index = idx;
                 div.innerHTML = `
-              <span class="option-letter">${opt.label}</span>
-              <span class="option-text">${opt.text}</span>
-            `;
-                div.addEventListener('click', () => handleOptionClick(opt.label));
+                    <span class="option-letter">${LABELS[idx]}</span>
+                    <span class="option-text">${optText}</span>
+                `;
+                div.addEventListener('click', () => handleOptionClick(idx));
                 optionsContainer.appendChild(div);
             });
 
             const prevAns = state.userAnswers[state.currentIndex];
-            if (prevAns) {
+            if (prevAns !== undefined) {
                 const items = optionsContainer.querySelectorAll('.option-item');
                 items.forEach(el => {
-                    if (el.dataset.label === prevAns) {
+                    const idx = parseInt(el.dataset.index);
+                    if (idx === prevAns) {
                         el.classList.add('selected');
                         state.selected = prevAns;
                     }
@@ -284,9 +290,10 @@
                     showFeedback(isCorrect, q.answer);
                     state.answered = true;
                     optionsContainer.querySelectorAll('.option-item').forEach(el => {
+                        const idx = parseInt(el.dataset.index);
                         el.classList.add('disabled');
-                        if (el.dataset.label === q.answer) el.classList.add('correct-reveal');
-                        if (el.dataset.label === prevAns && prevAns !== q.answer) el.classList.add('wrong-reveal');
+                        if (idx === q.answer) el.classList.add('correct-reveal');
+                        if (idx === prevAns && prevAns !== q.answer) el.classList.add('wrong-reveal');
                     });
                 } else {
                     state.answered = false;
@@ -311,17 +318,17 @@
         }
 
         // ─── Handle option click ─────────────────────────────────────────────
-        function handleOptionClick(label) {
+        function handleOptionClick(index) {
             if (state.answered) return;
             const q = state.filteredQuestions[state.currentIndex];
             const items = optionsContainer.querySelectorAll('.option-item');
             items.forEach(el => el.classList.remove('selected'));
             items.forEach(el => {
-                if (el.dataset.label === label) el.classList.add('selected');
+                if (parseInt(el.dataset.index) === index) el.classList.add('selected');
             });
-            state.selected = label;
-            state.userAnswers[state.currentIndex] = label;
-            submitAnswer(label);
+            state.selected = index;
+            state.userAnswers[state.currentIndex] = index;
+            submitAnswer(index);
         }
 
         // ─── Submit answer ────────────────────────────────────────────────────
@@ -339,19 +346,21 @@
 
             const items = optionsContainer.querySelectorAll('.option-item');
             items.forEach(el => {
+                const idx = parseInt(el.dataset.index);
                 el.classList.add('disabled');
-                if (el.dataset.label === q.answer) el.classList.add('correct-reveal');
-                if (el.dataset.label === selected && selected !== q.answer) el.classList.add('wrong-reveal');
+                if (idx === q.answer) el.classList.add('correct-reveal');
+                if (idx === selected && selected !== q.answer) el.classList.add('wrong-reveal');
             });
         }
 
         // ─── Show feedback ────────────────────────────────────────────────────
-        function showFeedback(isCorrect, answer) {
+        function showFeedback(isCorrect, answerIndex) {
             const q = state.filteredQuestions[state.currentIndex];
             feedbackBox.className = 'feedback-box show';
             feedbackBox.classList.add(isCorrect ? 'correct' : 'wrong');
             fbLabel.textContent = isCorrect ? '✅ Correct!' : '❌ Incorrect';
-            fbText.textContent = isCorrect ? 'Well done!' : `The correct answer was ${answer}.`;
+            const correctText = q.options[answerIndex] || 'Unknown';
+            fbText.textContent = isCorrect ? 'Well done!' : `The correct answer was ${LABELS[answerIndex]}: "${correctText}".`;
             explanationText.textContent = getDetailedExplanation(q);
         }
 
@@ -446,8 +455,7 @@
             if (!state.answered && !endScreen.classList.contains('show')) {
                 const num = parseInt(e.key);
                 if (num >= 1 && num <= 5) {
-                    const labels = ['A', 'B', 'C', 'D', 'E'];
-                    handleOptionClick(labels[num - 1]);
+                    handleOptionClick(num - 1);
                 }
             }
         });
