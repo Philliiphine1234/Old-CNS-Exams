@@ -20,9 +20,23 @@
         </div>
     </div>
     <!-- ─── COUNTER DISPLAY ─── -->
-    <div style="font-size:14px; color:var(--text-light); display:flex; gap:20px; margin-top:4px; width:100%; flex-wrap:wrap;">
-        <span>🌐 Total visits: <strong id="totalVisitors">0</strong></span>
-        <span>👤 Unique visitors: <strong id="uniqueVisitors">0</strong></span>
+ <div class="quiz-header">
+    <div class="quiz-title">🧠 CNS <span>Paper 1</span></div>
+    <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌓</button>
+        <div class="progress-badge">
+            <strong id="qCounter">0</strong> / <span id="totalQ">0</span>
+        </div>
+    </div>
+    <!-- ─── VISITOR COUNTER ─── -->
+    <div style="font-size:14px; color:var(--text-light); margin-top:4px; width:100%; display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+        <span>👤 Visitors:</span>
+        <a href="https://www.hitwebcounter.com/compress-pdf" target="_blank" rel="noopener" title="Check on Website">
+            <img src="https://www.hitwebcounter.com/counter/counter.php?page=21504550&amp;style=0010&amp;nbdigits=8&amp;type=ip" alt="Visitor Counter" decoding="async" style="border:0;max-width:100%;height:auto;vertical-align:middle;" />
+        </a>
+        <span style="font-size:10px; opacity:0.6;">
+            <a href="https://www.hitwebcounter.com/" target="_blank" rel="noopener" style="color:var(--text-light);text-decoration:none;">HitWebCounter</a>
+        </span>
     </div>
 </div>
         <!-- subject tabs -->
@@ -469,6 +483,5 @@
         updateSubjectCounts();
         setSubject('all');
     </script>
-<script src="counter.js"></script>
 </body>
 </html>
