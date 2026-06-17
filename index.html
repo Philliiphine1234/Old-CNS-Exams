@@ -11,19 +11,19 @@
     <div class="quiz-container" id="app">
 
         <!-- header -->
-        <div class="quiz-header">
-            <div style="font-size:14px; color:var(--text-light); display:flex; gap:20px; margin-top:4px;">
-    <span>🌐 Total visits: <strong id="totalVisitors">0</strong></span>
-    <span>👤 Unique visitors: <strong id="uniqueVisitors">0</strong></span>
-
-            <div class="quiz-title">🧠 CNS <span>Paper 1</span></div>
-            <div style="display:flex; gap:10px; align-items:center;">
-                <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌓</button>
-                <div class="progress-badge">
-                    <strong id="qCounter">0</strong> / <span id="totalQ">0</span>
-                </div>
-            </div>
+<div class="quiz-header">
+    <div class="quiz-title">🧠 CNS <span>Paper 1</span></div>
+    <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌓</button>
+        <div class="progress-badge">
+            <strong id="qCounter">0</strong> / <span id="totalQ">0</span>
         </div>
+    </div>
+    <!-- ─── COUNTER DISPLAY ─── -->
+    <div style="font-size:14px; color:var(--text-light); display:flex; gap:20px; margin-top:4px; width:100%; flex-wrap:wrap;">
+        <span>🌐 Total visits: <strong id="totalVisitors">0</strong></span>
+        <span>👤 Unique visitors: <strong id="uniqueVisitors">0</strong></span>
+    </div>
 </div>
         <!-- subject tabs -->
         <div class="subject-tabs" id="subjectTabs">
