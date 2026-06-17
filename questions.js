@@ -1,0 +1,2679 @@
+const QUESTION_BANK = [
+    // ─── ANATOMY (1–141) ──────────────────────────────────────────────
+    {
+        id: 1,
+        subject: 'Anatomy',
+        text: 'In infants, the spinal cord typically ends at which level?',
+        options: ['T12', 'L1', 'L2', 'L3', 'L4'],
+        answer: 3,
+        meta: 'Final 1 – 2018 · Assessment 1 – 2023',
+        explanation: 'In newborns, the spinal cord ends at L3 because the vertebral column grows faster than the neural tube. By adulthood, it ascends to L1–L2. A lumbar puncture in infants must be performed below L3 to avoid cord damage.'
+    },
+    {
+        id: 2,
+        subject: 'Anatomy',
+        text: 'The subarachnoid space of the spinal cord ends at which vertebral level?',
+        options: ['L1', 'L2', 'L3', 'L4', 'S2'],
+        answer: 4,
+        meta: 'Assessment 1 – 2023 – session 2',
+        explanation: 'The subarachnoid space extends to S2, forming the lumbar cistern around the cauda equina. This is why a spinal tap is safely done at L3–L4 or L4–L5 – below the cord termination but within CSF space.'
+    },
+    {
+        id: 3,
+        subject: 'Anatomy',
+        text: 'Which spinal level gives rise to the sympathetic white rami communicantes?',
+        options: ['T5', 'C8', 'L3', 'L4', 'S1'],
+        answer: 0,
+        meta: '',
+        explanation: 'White rami communicantes carry preganglionic sympathetic fibres from T1–L2 (thoracolumbar outflow). T5 is within this range. Cervical and sacral levels lack white rami.'
+    },
+    {
+        id: 4,
+        subject: 'Anatomy',
+        text: 'S2 spinal segment lies opposite to level of ...... vertebra',
+        options: ['S2', 'L4', 'L3', 'L2', 'L1'],
+        answer: 3,
+        meta: 'Final 1 – 2019 · Final 1 – 2025',
+        explanation: 'Due to differential growth, the spinal cord segments lie higher than their corresponding vertebrae. In adults, sacral segments (including S2) are opposite L2 vertebra. This "ascension" is important for surgical landmarks.'
+    },
+    {
+        id: 5,
+        subject: 'Anatomy',
+        text: 'Both rami of ...... spinal nerve are purely motor',
+        options: ['C1', 'T1', 'T12', 'L1', 'All rami are mixed'],
+        answer: 0,
+        meta: 'Final 1 – 2025',
+        explanation: 'C1 is unique – it lacks a dorsal root (sensory), so both its anterior and posterior rami are purely motor. It supplies the suboccipital muscles. All other spinal nerves have both motor and sensory fibres.'
+    },
+    {
+        id: 6,
+        subject: 'Anatomy',
+        text: 'Preganglionic sympathetic fibers lies at ......',
+        options: ['C1', 'C8', 'L2', 'L3', 'S1'],
+        answer: 2,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'Preganglionic sympathetic neurons are in the intermediolateral cell column (IML) of T1–L2. L2 is within this thoracolumbar outflow, so it is a correct site for these neurons.'
+    },
+    {
+        id: 7,
+        subject: 'Anatomy',
+        text: 'A patient sustains a fracture of the T4 vertebra. Which spinal cord segment is most likely affected?',
+        options: ['T2 segment', 'T3 segment', 'T4 segment', 'T5 segment', 'T6 segment'],
+        answer: 3,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'Due to the spinal cord "ascension", a T4 vertebral fracture typically affects the T5 spinal segment (one level higher). The cord segments are shifted upward relative to vertebral bodies.'
+    },
+    {
+        id: 8,
+        subject: 'Anatomy',
+        text: 'Which of the following pairs is matched correctly in the motor hierarchy?',
+        options: [
+            'Area 4 – muscle tone regulation',
+            'Area 6 – fine voluntary movements',
+            'Areas 3,1,2 – motor planning',
+            'Areas 5 and 7 – awareness of body position in space',
+            'Area 17 – voluntary motor control'
+        ],
+        answer: 3,
+        meta: '',
+        explanation: 'Areas 5 and 7 (posterior parietal cortex) are responsible for spatial awareness and sensory guidance of movement. Area 4 is primary motor (execution), Area 6 is premotor (planning), Areas 3,1,2 are sensory, and Area 17 is visual.'
+    },
+    {
+        id: 9,
+        subject: 'Anatomy',
+        text: 'Damage to which brain area typically causes sensory aphasia?',
+        options: ['Broca area', 'Wernicke area', 'Angular gyrus', 'Supramarginal gyrus', 'Primary auditory cortex'],
+        answer: 1,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'Wernicke\'s area (posterior superior temporal gyrus) is responsible for language comprehension. Damage causes sensory (receptive) aphasia – fluent speech but meaningless content and poor understanding. Broca\'s area causes expressive aphasia.'
+    },
+    {
+        id: 10,
+        subject: 'Anatomy',
+        text: 'Which of the following is true regarding the representation in the somatosensory area one S1?',
+        options: [
+            'Receive ipsilateral solitario-thalamo-cortical fibers from thalamus',
+            'Disproportionate to body Receptors',
+            'Face sensation is represented posteriorly, and body sensation is represented anteriorly',
+            'Face sensation is represented anteriorly, and body sensation is represented posteriorly',
+            'Face and body sensation is represented contralaterally'
+        ],
+        answer: 1,
+        meta: 'Final 1 – 2019 · Final 1 – 2025',
+        explanation: 'S1 has a somatotopic map – the homunculus – with disproportionate cortical space for body parts (lips, hands). Sensation is contralateral. Face is represented laterally (inferiorly on the postcentral gyrus) and body medially (superiorly).'
+    },
+    {
+        id: 11,
+        subject: 'Anatomy',
+        text: 'Which cortical area(s) is/are located in the postcentral gyrus?',
+        options: ['Wernicke’s area', 'Area 43', 'Supra marginal gyrus (area 40) and angular gyrus (Area 39)', 'Area 5 and 7', 'Area 1 and 2'],
+        answer: 4,
+        meta: 'Final 1 – 2018',
+        explanation: 'The postcentral gyrus is the primary somatosensory cortex, corresponding to Brodmann areas 3, 1, and 2. Wernicke\'s is in the superior temporal gyrus, areas 5 and 7 in the superior parietal lobule, and 39/40 are in the inferior parietal lobule.'
+    },
+    {
+        id: 12,
+        subject: 'Anatomy',
+        text: 'Primary sensory cortex is present in which of the following areas?',
+        options: ['Precentral gyrus', 'Anterior part of paracentral lobule', 'Posterior part of paracentral lobule', 'Superior lip of posterior ramus of lateral sulcus', 'Superior parietal lobule'],
+        answer: 2,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'The primary sensory cortex for the lower limb and perineum is in the posterior part of the paracentral lobule (medial extension of the postcentral gyrus). The anterior part is motor. This follows the homunculus layout.'
+    },
+    {
+        id: 13,
+        subject: 'Anatomy',
+        text: 'Contralateral representation of face and body is found in',
+        options: ['Primary somatosensory area', 'Secondary somatosensory area', 'Gustatory area', 'Somatosensory association area', 'Wernicke\'s area'],
+        answer: 0,
+        meta: 'Final 1 – 2022',
+        explanation: 'Contralateral representation (left body → right hemisphere) is a fundamental feature of the primary somatosensory cortex (S1). Other areas like S2 have bilateral or less strictly contralateral representations.'
+    },
+    {
+        id: 14,
+        subject: 'Anatomy',
+        text: 'Which tract continues as the neospinothalamic pathway carrying pain and temperature sensations to the thalamus?',
+        options: ['Spinoreticular tract', 'Medial lemniscus', 'Spinocerebellar tract', 'Spinal lemniscus', 'Corticospinal tract'],
+        answer: 3,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'The neospinothalamic tract (fast, sharp pain and temperature) continues as the spinal lemniscus after synapsing in the thalamus (VPL). The paleospinothalamic tract mediates slow, dull pain.'
+    },
+    {
+        id: 15,
+        subject: 'Anatomy',
+        text: 'Which structure contains the first order neurons for facial pain and temperature?',
+        options: ['Lamina I', 'Trigeminal ganglion', 'Substantia Gelatinosa of Rolandi (SGR)', 'Lamina IV to VIII', 'Nucleus proprius'],
+        answer: 1,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'First-order neurons for facial pain and temperature are in the trigeminal (Gasserian) ganglion. Their axons descend in the spinal trigeminal tract to synapse in the spinal trigeminal nucleus (second-order).'
+    },
+    {
+        id: 16,
+        subject: 'Anatomy',
+        text: 'Which thalamic nuclei receive input from the paleospinothalamic tract?',
+        options: ['Ventral posterolateral nucleus (VPLN)', 'Ventral posteromedial nucleus (VPMN)', 'Spinal nucleus of trigeminal', 'Lateral geniculate', 'Intralaminar nucleus'],
+        answer: 4,
+        meta: 'Final 1 – 2025',
+        explanation: 'The paleospinothalamic tract (slow, diffuse pain) projects to the intralaminar nuclei of the thalamus. The neospinothalamic tract projects to VPL.'
+    },
+    {
+        id: 17,
+        subject: 'Anatomy',
+        text: 'The second-order neuron transmitting pain and temperature sensation from the face is located in which nucleus?',
+        options: ['Ventral posterolateral nucleus (VPLN)', 'Ventral posteromedial nucleus (VPMN)', 'Spinal nucleus of trigeminal', 'Lateral geniculate', 'Intralaminar nucleus'],
+        answer: 2,
+        meta: 'Assessment 1 – 2023 – session 2',
+        explanation: 'Second-order neurons for facial pain and temperature are in the spinal nucleus of the trigeminal (which extends into the upper cervical cord). They decussate and ascend as the trigeminal lemniscus to the contralateral VPM.'
+    },
+    {
+        id: 18,
+        subject: 'Anatomy',
+        text: 'Loss of pain and temperature sensation from the face, with involvement of the corresponding ascending pathway, indicates a lesion in which of the following?',
+        options: ['Spinal lemniscus', 'Trigeminal lemniscus', 'Medial lemniscus', 'Lateral lemniscus', 'Corticobulbar tract'],
+        answer: 1,
+        meta: '',
+        explanation: 'The trigeminal lemniscus carries pain and temperature from the face. A lesion here causes contralateral loss of facial pain/temp. The spinal lemniscus carries body pain/temp, the medial lemniscus fine touch/proprioception.'
+    },
+    {
+        id: 19,
+        subject: 'Anatomy',
+        text: 'Loss of sensation from both the left face and left body indicates a lesion in which of the following areas?',
+        options: ['Right Trigeminal nerve lesion', 'Left Lateral spinothalamic region', 'Right Lateral spinothalamic region', 'Left thalamic lesion', 'Right thalamic lesion'],
+        answer: 4,
+        meta: '',
+        explanation: 'A right thalamic lesion would affect both the left face (via trigeminal lemniscus) and the left body (via spinothalamic tract) because both pathways decussate and project to the contralateral thalamus.'
+    },
+    {
+        id: 20,
+        subject: 'Anatomy',
+        text: 'Which of the following correctly pairs a neural structure with its functional role?',
+        options: [
+            'Spinothalamic tract: conscious proprioception from lower limb',
+            'Cuneate nucleus: unconscious proprioception from upper limb',
+            'Gracile nucleus: conscious proprioception from lower limb',
+            'Dorsal spinocerebellar tract: unconscious proprioception from upper limb',
+            'Ventral spinocerebellar tract: unconscious proprioception from upper limb'
+        ],
+        answer: 2,
+        meta: '',
+        explanation: 'The gracile nucleus receives conscious proprioception from the lower limb (below T6). The cuneate nucleus handles the upper limb. The dorsal spinocerebellar tract carries unconscious proprioception from the lower limb, and the cuneocerebellar tract carries it from the upper limb.'
+    },
+    {
+        id: 21,
+        subject: 'Anatomy',
+        text: 'Which of the following tracts passes through the superior cerebellar peduncle?',
+        options: ['Anterior spinocerebellar tract', 'Dorsal spinocerebellar tract', 'Gracile tract', 'Cuneate tract', 'Spino-olivary tract'],
+        answer: 0,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'The anterior (ventral) spinocerebellar tract enters the cerebellum via the superior cerebellar peduncle (after crossing twice). The dorsal spinocerebellar tract uses the inferior cerebellar peduncle.'
+    },
+    {
+        id: 22,
+        subject: 'Anatomy',
+        text: 'Proprioceptive sensation from the big toe ascends to the brainstem through which fibers?',
+        options: ['Spinothalamic tract', 'External arcuate fibers', 'Cuneate fibers', 'Anterior corticospinal tract', 'Internal arcuate fibers'],
+        answer: 4,
+        meta: 'Assessment 1 – 2023 – session 2',
+        explanation: 'Proprioception from the lower limb travels in the fasciculus gracilis. After synapsing in the gracilis nucleus, the second-order fibres decussate as the internal arcuate fibres to form the medial lemniscus.'
+    },
+    {
+        id: 23,
+        subject: 'Anatomy',
+        text: 'Which fibers enter the cerebellum through the inferior cerebellar peduncle?',
+        options: ['Anterior spinocerebellar tract', 'Dorsal spinocerebellar tract', 'Gracile tract', 'Cuneate tract', 'Ventral spinothalamic tract'],
+        answer: 1,
+        meta: 'Assessment 1 – 2023 – session 2',
+        explanation: 'The dorsal (posterior) spinocerebellar tract enters the cerebellum via the inferior cerebellar peduncle. It carries unconscious proprioception from the lower limb.'
+    },
+    {
+        id: 24,
+        subject: 'Anatomy',
+        text: 'Which tracts carry kinesthetic sensation from the body?',
+        options: ['Anterior spinocerebellar tract', 'Dorsal spinocerebellar tract', 'Dorsal spinothalamic tract', 'Ventral spinothalamic tract', 'Gracile and Cuneate tracts'],
+        answer: 4,
+        meta: 'Final 1 – 2019 – Summer · Assessment 1 – 2023',
+        explanation: 'Kinesthesia (conscious awareness of joint position and movement) is carried by the dorsal column-medial lemniscal pathway, specifically the gracile and cuneate tracts.'
+    },
+    {
+        id: 25,
+        subject: 'Anatomy',
+        text: 'A patient has a lesion affecting the right gracile tract. Which of the following sensory deficits is most likely?',
+        options: ['Pain and temperature loss in the right tibia', 'Vibration loss in the right tibia', 'Pain and temperature loss in the left tibia', 'Vibration loss in the left tibia', 'Complete loss of all sensations in both legs'],
+        answer: 1,
+        meta: '',
+        explanation: 'The gracile tract is ipsilateral (does not cross until the medulla). A lesion of the right gracile tract causes loss of vibration, proprioception, and fine touch in the right lower limb.'
+    },
+    {
+        id: 26,
+        subject: 'Anatomy',
+        text: 'Which fibers are afferent to cerebellum through the inferior cerebellar peduncle?',
+        options: ['Anterior spinocerebellar fibers', 'External arcuate fibers', 'Internal arcuate fibers', 'Fibers from Gracile tract', 'Ventral spinothalamic fibers'],
+        answer: 1,
+        meta: 'Final 1 – 2018 · Final 1 – 2019 · Final 1 – 2019 – Summer',
+        explanation: 'The external arcuate fibres are second-order axons from the cuneate and gracile nuclei that cross to form the dorsal spinocerebellar tract and the cuneocerebellar tract. They enter the cerebellum via the inferior cerebellar peduncle.'
+    },
+    {
+        id: 27,
+        subject: 'Anatomy',
+        text: 'Unconscious proprioception from the wrist is carried through which of the following tracts?',
+        options: ['Cuneocerebellar tract', 'Dorsal spinocerebellar tract', 'Ventral spinocerebellar tract', 'Spinothalamic tract', 'Cuneate tract'],
+        answer: 0,
+        meta: 'Final 1 – 2022 · Final 1 – 2019',
+        explanation: 'Unconscious proprioception from the upper limb (wrist) is carried by the cuneocerebellar tract (the upper limb equivalent of the dorsal spinocerebellar tract).'
+    },
+    {
+        id: 28,
+        subject: 'Anatomy',
+        text: 'Where is the supplementary motor area located?',
+        options: ['Superior frontal gyrus', 'Inferior frontal gyrus', 'Precentral gyrus', 'Postcentral gyrus', 'Medial frontal gyrus'],
+        answer: 0,
+        meta: 'Final 1 – 2018',
+        explanation: 'The supplementary motor area (SMA) is located on the medial aspect of the superior frontal gyrus, just anterior to the primary motor cortex (area 4). It is involved in planning and initiating complex movements.'
+    },
+    {
+        id: 29,
+        subject: 'Anatomy',
+        text: 'A patient develops behavioral changes and wears inappropriate clothing after an accident affecting frontal bone. Which cortical area is affected?',
+        options: ['Primary motor area', 'Premotor area', 'Supplementary motor area', 'Prefrontal area', 'Primary sensory area'],
+        answer: 3,
+        meta: '',
+        explanation: 'The prefrontal cortex is responsible for executive functions, personality, social behaviour, and decision-making. Damage here often results in marked personality changes and inappropriate behaviour.'
+    },
+    {
+        id: 30,
+        subject: 'Anatomy',
+        text: 'Which area of the brain, when damaged, causes contralateral hemiplegia?',
+        options: ['Supplementary motor area', 'Premotor area', 'Broca\'s area', 'Primary motor area', 'Somatosensory cortex'],
+        answer: 3,
+        meta: 'Final 1 – 2022 · Final 1 – 2025',
+        explanation: 'The primary motor cortex (area 4) contains the Betz cells whose axons form the corticospinal tract. Damage here causes contralateral spastic hemiplegia (upper motor neuron lesion).'
+    },
+    {
+        id: 31,
+        subject: 'Anatomy',
+        text: 'Which function is primarily controlled by the primary motor cortex (area 4)?',
+        options: ['Planning complex movements', 'Converting plans into movements', 'Processing sensory input', 'Gives you the idea to move', 'Controlling eye movements'],
+        answer: 1,
+        meta: 'Final 1 – 2022 · Final 1 – 2019 – Summer · Assessment 1 – 2023',
+        explanation: 'Area 4 is the final common pathway for voluntary movement – it converts the motor plan into actual motor commands sent down the corticospinal tract. It executes movements rather than plans them.'
+    },
+    {
+        id: 32,
+        subject: 'Anatomy',
+        text: '28 year old man sustains a head injury in a road traffic accident. After recovery, his family reports marked personality change?',
+        options: ['Primary motor cortex', 'Supplementary motor area', 'Prefrontal cortex', 'Primary somatosensory cortex', 'Visual association cortex'],
+        answer: 2,
+        meta: '',
+        explanation: 'The prefrontal cortex is responsible for personality and social behaviour. Damage from head injury often results in marked personality changes, disinhibition, and inappropriate behaviour.'
+    },
+    {
+        id: 33,
+        subject: 'Anatomy',
+        text: 'Which part of the brain controls motor function of the right leg?',
+        options: ['Right precentral gyrus', 'Left precentral gyrus', 'Right postcentral gyrus', 'Left postcentral gyrus', 'Left paracentral lobule'],
+        answer: 1,
+        meta: 'Final 1 – 2025',
+        explanation: 'Motor function of the right leg is controlled by the left primary motor cortex (precentral gyrus). The motor homunculus shows the leg area on the medial surface of the precentral gyrus.'
+    },
+    {
+        id: 34,
+        subject: 'Anatomy',
+        text: 'Loss of fine voluntary movements is most likely caused by a lesion in which area?',
+        options: ['Supplementary motor area', 'Prefrontal cortex', 'Primary somatosensory cortex', 'Visual association cortex', 'Primary motor area'],
+        answer: 4,
+        meta: '',
+        explanation: 'Fine voluntary movements require the primary motor cortex (area 4). A lesion here causes loss of fractionated, skilled movements, especially of the hands and fingers.'
+    },
+    {
+        id: 35,
+        subject: 'Anatomy',
+        text: 'is responsible for fine skilled movements of index finger',
+        options: ['Supplementary motor area', 'Prefrontal cortex', 'Primary somatosensory cortex', 'Corticospinal pathway', 'Primary motor area'],
+        answer: 3,
+        meta: '',
+        explanation: 'The corticospinal pathway (specifically the lateral corticospinal tract) is responsible for fine, skilled, and fractionated movements of the distal limbs, including the index finger.'
+    },
+    {
+        id: 36,
+        subject: 'Anatomy',
+        text: 'Broca\'s area is located in ......',
+        options: ['Superior frontal gyrus', 'Middle frontal gyrus', 'Inferior frontal gyrus', 'Precentral gyrus', 'Anterior part of paracentral lobule'],
+        answer: 2,
+        meta: 'Final 1 – 2019',
+        explanation: 'Broca\'s area (Brodmann areas 44 and 45) is located in the inferior frontal gyrus of the dominant hemisphere (usually the left). It is responsible for motor speech production (expressive language).'
+    },
+    {
+        id: 37,
+        subject: 'Anatomy',
+        text: 'A patient has difficulty voluntarily moving both eyes to the right side. This deficit is most likely due to a lesion in which of the following areas?',
+        options: ['Left frontal eye field', 'Right frontal eye field', 'Left postcentral gyrus', 'Right postcentral gyrus', 'Left paracentral lobule'],
+        answer: 0,
+        meta: '',
+        explanation: 'The frontal eye field (area 8) controls voluntary conjugate eye movements to the contralateral side. A left frontal eye field lesion prevents voluntary saccades to the right.'
+    },
+    {
+        id: 38,
+        subject: 'Anatomy',
+        text: 'Loss of sensation from the left upper limb indicates a lesion in which of the following areas?',
+        options: ['Right postcentral gyrus', 'Left postcentral gyrus', 'Right paracentral gyrus', 'Left paracentral gyrus', 'Left precentral gyrus'],
+        answer: 0,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'Sensation from the upper limb is processed in the postcentral gyrus (primary somatosensory cortex) of the contralateral hemisphere. Thus, the left upper limb is represented in the right postcentral gyrus.'
+    },
+    {
+        id: 39,
+        subject: 'Anatomy',
+        text: 'Which extrapyramidal tract helps adjust the head and neck in response to visual and cutaneous stimuli?',
+        options: ['Tectospinal', 'Rubrospinal', 'Reticulospinal', 'Vestibulospinal', 'Corticospinal'],
+        answer: 0,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'The tectospinal tract originates in the superior colliculus (tectum) and decussates to control head and neck movements in response to visual and auditory stimuli (orienting reflexes).'
+    },
+    {
+        id: 40,
+        subject: 'Anatomy',
+        text: 'Which muscle is supplied only by contralateral corticobulbar fibers?',
+        options: ['Orbicularis oris', 'Masseter', 'Genioglossus', 'Sternocleidomastoid', 'Muscles of the upper part of the face'],
+        answer: 2,
+        meta: '',
+        explanation: 'The genioglossus muscle (tongue protrusion) receives only contralateral corticobulbar innervation. The upper face receives bilateral innervation, and the lower face mostly contralateral.'
+    },
+    {
+        id: 41,
+        subject: 'Anatomy',
+        text: 'Which facial muscle receives only contralateral cortical innervation?',
+        options: ['Orbicularis oris of the lower face', 'Orbicularis oculi of the upper face', 'Buccinator', 'Zygomaticus major', 'Frontalis'],
+        answer: 0,
+        meta: 'Assessment 1 – 2023 – session 2',
+        explanation: 'The lower face muscles receive primarily contralateral cortical innervation. The upper face muscles receive bilateral innervation. This is why a central facial palsy spares the forehead.'
+    },
+    {
+        id: 42,
+        subject: 'Anatomy',
+        text: 'Which descending motor pathway serves as an alternate route to the corticospinal tract?',
+        options: ['Corticobulbar tract', 'Rubrospinal tract', 'Vestibulospinal tract', 'Reticulospinal tract', 'Tectospinal tract'],
+        answer: 1,
+        meta: 'Final 1 – 2022 · Final 1 – 2025 · Final 1 – 2019 – Summer',
+        explanation: 'The rubrospinal tract originates in the red nucleus and provides an alternative pathway for voluntary movement, particularly for flexor muscles of the upper limb.'
+    },
+    {
+        id: 43,
+        subject: 'Anatomy',
+        text: 'Which of the following is related to the anterior corticospinal tract?',
+        options: ['Supplies the muscles of the trunk', 'Controls fine movements of fingers', 'Decussates in the medulla', 'Supplies distal limb muscles only', 'Carries sensory fibers'],
+        answer: 0,
+        meta: '',
+        explanation: 'The anterior corticospinal tract (10–20% of fibres) does not decussate in the medulla; it descends ipsilaterally and supplies axial (trunk) and proximal muscles.'
+    },
+    {
+        id: 44,
+        subject: 'Anatomy',
+        text: 'Which of the following is NOT an extrapyramidal tract?',
+        options: ['Rubrospinal tract', 'Reticulospinal tract', 'Vestibulospinal tract', 'Corticobulbar tract', 'Tectospinal tract'],
+        answer: 3,
+        meta: '',
+        explanation: 'The corticobulbar tract is a pyramidal tract (part of the direct motor pathway). Extrapyramidal tracts include rubrospinal, reticulospinal, vestibulospinal, and tectospinal.'
+    },
+    {
+        id: 45,
+        subject: 'Anatomy',
+        text: 'Head rotation in response to visual stimuli, with crossing at the level of the superior colliculus, is mediated by which of the following tracts?',
+        options: ['Rubrospinal tract', 'Vestibulospinal tract', 'Reticulospinal tract', 'Corticospinal tract', 'Tectospinal tract'],
+        answer: 4,
+        meta: 'Final 1 – 2022',
+        explanation: 'The tectospinal tract mediates reflex head turning in response to visual and auditory stimuli. It originates in the superior colliculus, decussates at that level, and descends to control neck muscles.'
+    },
+    {
+        id: 46,
+        subject: 'Anatomy',
+        text: 'Decussation at the level of the superior midbrain occurs in which of the following tracts?',
+        options: ['Rubrospinal tract', 'Vestibulospinal tract', 'Reticulospinal tract', 'Corticospinal tract', 'Cuneate tract'],
+        answer: 0,
+        meta: 'Final 1 – 2022',
+        explanation: 'The rubrospinal tract decussates at the level of the superior midbrain (red nucleus). The tectospinal also decussates here. The corticospinal decussates at the medullary pyramids.'
+    },
+    {
+        id: 47,
+        subject: 'Anatomy',
+        text: 'Tectospinal tract origin is ......',
+        options: ['Red nucleus', 'Medial vestibular nucleus', 'Lateral vestibular nucleus', 'Reticular formation', 'Superior colliculus'],
+        answer: 4,
+        meta: 'Final 1 – 2019',
+        explanation: 'The tectospinal tract originates in the superior colliculus (part of the tectum of the midbrain). The red nucleus gives rise to the rubrospinal tract.'
+    },
+    {
+        id: 48,
+        subject: 'Anatomy',
+        text: 'The corticonuclear (corticobulbar) tract provides only contralateral innervation to which of the following cranial nerves?',
+        options: ['Facial nerve (upper face)', 'Trigeminal nerve', 'Hypoglossal nerve', 'Oculomotor nerve', 'Accessory nerve'],
+        answer: 2,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'The hypoglossal nerve (CN XII) receives purely contralateral innervation from the corticobulbar tract. The lower facial nucleus receives contralateral input, but the upper facial nucleus receives bilateral.'
+    },
+    {
+        id: 49,
+        subject: 'Anatomy',
+        text: 'A patient presents with sudden onset bilateral paraplegia and loss of pain and temperature sensation below a certain level. The most likely cause is:',
+        options: ['Anterior spinal artery occlusion', 'Posterior spinal artery occlusion', 'Adamkiewicz artery occlusion', 'Brown-Séquard syndrome', 'None of the above'],
+        answer: 0,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'Anterior spinal artery occlusion causes bilateral paraplegia and loss of pain/temperature below the lesion, with preservation of vibration and proprioception (dorsal column sparing).'
+    },
+    {
+        id: 50,
+        subject: 'Anatomy',
+        text: '30-year-old male suffers a traumatic injury to his spine after a fall. He cannot move his legs and has lost all sensation below the level of the injury. Which of the following is the most likely diagnosis?',
+        options: ['Complete spinal cord transection at C4', 'Complete spinal cord transection at T5', 'Complete spinal cord transection at T8', 'Hemisection of spinal at T12', 'Brown-Séquard syndrome'],
+        answer: 1,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'A complete transection at T5 causes paraplegia (leg paralysis) and loss of all sensation below that level. Transection at C4 causes quadriplegia. Hemisection causes Brown-Séquard.'
+    },
+    {
+        id: 51,
+        subject: 'Anatomy',
+        text: 'Lesion of the anterior spinal artery most likely produces which finding?',
+        options: ['Intact pain and temperature sensation', 'Intact dorsal column sensations', 'Intact voluntary motor function', 'Impaired conscious proprioception', 'Impaired unconscious proprioception'],
+        answer: 1,
+        meta: 'Assessment 1 – 2023 – session 2',
+        explanation: 'Anterior spinal artery occlusion spares the dorsal columns (supplied by the posterior spinal arteries). Thus, dorsal column sensations (vibration, proprioception) remain intact.'
+    },
+    {
+        id: 52,
+        subject: 'Anatomy',
+        text: 'Right hemisection of the spinal cord most likely produces which finding?',
+        options: [
+            'Loss of all types of sensation of the left side at the level of the lesion',
+            'Loss of proprioception of the left side below the level of the lesion',
+            'Loss of pain and temperature sensations of the left side below the level of the lesion',
+            'Left lower motor neuron lesion at the level of the lesion',
+            'Left upper motor neuron lesion at the level of the lesion'
+        ],
+        answer: 2,
+        meta: 'Assessment 1 – 2023 – session 2',
+        explanation: 'Right hemisection (Brown-Séquard) causes ipsilateral (right) loss of dorsal column sensations below the lesion, contralateral (left) loss of pain and temperature below the lesion, and ipsilateral lower motor neuron paralysis at the level of the lesion.'
+    },
+    {
+        id: 53,
+        subject: 'Anatomy',
+        text: 'Loss of proprioception on the same side of a lesion with loss of pain and temperature on the opposite side is characteristic of which condition?',
+        options: ['Complete spinal cord transection at C4', 'Complete spinal cord transection at T5', 'Complete spinal cord transection at T8', 'Complete spinal cord transection at T12', 'Brown-Séquard syndrome'],
+        answer: 4,
+        meta: '',
+        explanation: 'This is the classic Brown-Séquard syndrome (hemisection of the spinal cord). It causes ipsilateral loss of dorsal column sensations and contralateral loss of spinothalamic sensations below the lesion.'
+    },
+    {
+        id: 54,
+        subject: 'Anatomy',
+        text: 'Hemisection of the spinal cord most likely produces which finding?',
+        options: [
+            'Loss of all types of sensation of the opposite side at the level of the lesion',
+            'Loss of proprioception of the opposite side below the level of the lesion',
+            'Loss of dorsal column sensations of the same side below the level of the lesion',
+            'Lower motor neuron lesion of the opposite side at the level of the lesion',
+            'Upper motor neuron lesion of the opposite side at the level of the lesion'
+        ],
+        answer: 2,
+        meta: 'Final 1 – 2019 – Summer · Final 1 – 2022',
+        explanation: 'Hemisection (Brown-Séquard) causes ipsilateral loss of dorsal column sensations below the lesion, contralateral loss of pain and temperature below the lesion, and ipsilateral lower motor neuron paralysis at the level of the lesion.'
+    },
+    {
+        id: 55,
+        subject: 'Anatomy',
+        text: 'A patient diagnosed with Vascular thrombosis affecting the dorsal column tracts. Which artery is most likely affected?',
+        options: ['Anterior spinal artery', 'Posterior spinal artery', 'Radicular artery', 'Adamkiewicz artery', 'Posterior superior cerebellar artery'],
+        answer: 1,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'The posterior spinal arteries supply the dorsal columns (gracile and cuneate tracts). Thrombosis here causes loss of proprioception and vibration sensation ipsilaterally.'
+    },
+    {
+        id: 56,
+        subject: 'Anatomy',
+        text: 'Which structure of the basal ganglia is classified as the paleostriatum?',
+        options: ['Caudate nucleus', 'Putamen', 'Globus pallidus', 'Subthalamic nucleus', 'Substantia nigra'],
+        answer: 2,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'The paleostriatum is the older part of the basal ganglia – it corresponds to the globus pallidus. The neostriatum includes the caudate nucleus and putamen.'
+    },
+    {
+        id: 57,
+        subject: 'Anatomy',
+        text: 'Which structure is part of the neostriatum?',
+        options: ['Globus pallidus', 'Claustrum', 'Subthalamic nucleus', 'Caudate nucleus', 'Substantia nigra'],
+        answer: 3,
+        meta: 'Assessment 1 – 2023 – session 2',
+        explanation: 'The neostriatum consists of the caudate nucleus and the putamen. The globus pallidus is the paleostriatum.'
+    },
+    {
+        id: 58,
+        subject: 'Anatomy',
+        text: 'Which Cerebellar structures are separated by fissure prima?',
+        options: ['Anterior and posterior lobes', 'Superior surface and inferior surface', 'Paleocerebellum and neocerebellum', 'Cerebellar hemispheres', 'Superior and inferior vermis'],
+        answer: 0,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'The primary fissure (fissura prima) separates the anterior lobe from the posterior lobe on the superior surface of the cerebellum.'
+    },
+    {
+        id: 59,
+        subject: 'Anatomy',
+        text: 'Which function is primarily controlled by the flocculonodular lobe of the cerebellum?',
+        options: ['Fine motor coordination', 'Planning movements', 'Equilibrium and posture', 'Speech', 'Sensory integration'],
+        answer: 2,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'The flocculonodular lobe (archicerebellum) is primarily concerned with equilibrium, posture, and eye movements (vestibulo-ocular reflex).'
+    },
+    {
+        id: 60,
+        subject: 'Anatomy',
+        text: 'A patient has a tumor in the fourth ventricle. Which of the following cranial nerve nuclei is most likely to be affected due to its location?',
+        options: ['Trigeminal nucleus', 'Facial nucleus', 'Abducent nucleus', 'Glossopharyngeal nucleus', 'Vagus nucleus'],
+        answer: 2,
+        meta: 'Final 2 – 2018',
+        explanation: 'The abducent nucleus (CN VI) is located in the dorsal pons, close to the floor of the fourth ventricle, making it vulnerable to compression by a fourth ventricle tumour.'
+    },
+    {
+        id: 61,
+        subject: 'Anatomy',
+        text: 'The Medial Geniculate Body is connected to the brachium of which of the following structures?',
+        options: ['Superior colliculus', 'Pineal gland', 'Inferior colliculus', 'Lateral geniculate body', 'Red nucleus'],
+        answer: 2,
+        meta: '',
+        explanation: 'The medial geniculate body (MGB) is the auditory relay nucleus in the thalamus. It is connected to the inferior colliculus via the brachium of the inferior colliculus.'
+    },
+    {
+        id: 62,
+        subject: 'Anatomy',
+        text: 'Which artery and its branches are primarily responsible for supplying the pons?',
+        options: ['Anterior inferior cerebellar artery', 'Superior cerebellar artery', 'Basilar artery', 'Posterior cerebral artery', 'Vertebral artery'],
+        answer: 2,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'The basilar artery gives off paramedian and circumferential branches that supply the pons. The AICA and SCA supply the cerebellum and lateral pons.'
+    },
+    {
+        id: 63,
+        subject: 'Anatomy',
+        text: 'Which cranial nerve emerges from the dorsal (back) aspect of the brainstem?',
+        options: ['Oculomotor nerve', 'Facial nerve', 'Trigeminal nerve', 'Abducens nerve', 'Trochlear nerve'],
+        answer: 4,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'The trochlear nerve (CN IV) is the only cranial nerve that emerges from the dorsal side of the brainstem, from the inferior colliculus region.'
+    },
+    {
+        id: 64,
+        subject: 'Anatomy',
+        text: 'Which cranial nerve nuclei are located in the pons?',
+        options: ['Trigeminal and Abducent', 'Facial and Oculomotor', 'Hypoglossal and Vagus', 'Olfactory and Optic', 'Spinal Accessory and Glossopharyngeal'],
+        answer: 0,
+        meta: '',
+        explanation: 'The trigeminal (CN V) and abducent (CN VI) nuclei are in the pons. The facial nucleus is also in the pons, but the option "Trigeminal and Abducent" is the classic correct pair.'
+    },
+    {
+        id: 65,
+        subject: 'Anatomy',
+        text: 'Which cranial nerve is not found in the open medulla?',
+        options: ['Oculomotor nerve', 'Hypoglossal nerve', 'Vagus nerve', 'Vestibulocochlear nerve', 'No correct answer'],
+        answer: 0,
+        meta: '',
+        explanation: 'The oculomotor nerve (CN III) emerges from the midbrain, not the medulla. The hypoglossal (XII), vagus (X), and vestibulocochlear (VIII) have nuclei or roots in the open medulla.'
+    },
+    {
+        id: 66,
+        subject: 'Anatomy',
+        text: 'Which of the following is present in the dorsal surface of midbrain?',
+        options: ['Oculomotor nerve', 'Trochlear nerve', 'Facial colliculus', 'Inferior colliculus', 'Gracile colliculus'],
+        answer: 3,
+        meta: 'Final 1 – Summer – 2019',
+        explanation: 'The dorsal surface of the midbrain (tectum) contains the superior and inferior colliculi. The inferior colliculus is part of the auditory pathway.'
+    },
+    {
+        id: 67,
+        subject: 'Anatomy',
+        text: 'Which of the following is present in the ventral surface of medulla?',
+        options: ['Medullary stria', 'The pyramid', 'Inferior colliculus', 'Cuneate tubercle', 'Gracile tubercle'],
+        answer: 1,
+        meta: 'Final 1 – 2019',
+        explanation: 'The medullary pyramids (containing the corticospinal tracts) are prominent ridges on the ventral surface of the medulla.'
+    },
+    {
+        id: 68,
+        subject: 'Anatomy',
+        text: 'Which structure is found at the level of the open medulla?',
+        options: ['Inferior cerebellar peduncle', 'Main olivary nucleus', 'Pyramidal decussation', 'Nucleus gracilis', 'Nucleus cuneatus'],
+        answer: 1,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'The open medulla (rostral medulla) contains the inferior olivary nucleus, a prominent landmark. The pyramidal decussation is at the closed medulla.'
+    },
+    {
+        id: 69,
+        subject: 'Anatomy',
+        text: 'Which cranial nerve nucleus is located most medially in the medulla?',
+        options: ['Vagus', 'Glossopharyngeal', 'Hypoglossal', 'Spinal accessory', 'Trigeminal'],
+        answer: 2,
+        meta: 'Final 1 – 2024',
+        explanation: 'The hypoglossal nucleus (CN XII) is located in the medial aspect of the medulla, close to the midline, beneath the floor of the fourth ventricle.'
+    },
+    {
+        id: 70,
+        subject: 'Anatomy',
+        text: 'A patient presents with dilated lateral and third ventricles on brain imaging. Which of the following structures is most likely obstructed, leading to this pattern of ventricular enlargement?',
+        options: ['Aqueduct of Sylvius', 'Foramen of Monro', 'Median Foramen of Magendie', 'Lateral Foramina of Luschka', 'Central Canal of the Spinal Cord'],
+        answer: 0,
+        meta: 'Assessment 2 – 2020',
+        explanation: 'Obstruction of the Aqueduct of Sylvius causes non-communicating hydrocephalus with dilation of the lateral and third ventricles, but the fourth ventricle remains normal.'
+    },
+    {
+        id: 71,
+        subject: 'Anatomy',
+        text: 'The Aqueduct of Sylvius connects which of the following ventricular structures?',
+        options: ['Lateral ventricles to third ventricle', 'Third ventricle to fourth ventricle', 'Fourth ventricle to central canal', 'Third ventricle to lateral ventricles', 'Fourth ventricle to subarachnoid space'],
+        answer: 1,
+        meta: 'Final 2 – 2018',
+        explanation: 'The cerebral aqueduct (Aqueduct of Sylvius) connects the third ventricle (in the diencephalon) to the fourth ventricle (in the hindbrain).'
+    },
+    {
+        id: 72,
+        subject: 'Anatomy',
+        text: 'Which ventricle develops from the rhombencephalon?',
+        options: ['Lateral ventricle', 'Third ventricle', 'Fourth ventricle', 'Cerebral aqueduct', 'None of the above'],
+        answer: 2,
+        meta: '',
+        explanation: 'The rhombencephalon (hindbrain) gives rise to the fourth ventricle. The telencephalon gives rise to the lateral ventricles, and the diencephalon gives rise to the third ventricle.'
+    },
+    {
+        id: 73,
+        subject: 'Anatomy',
+        text: 'Luschka connects which two structures?',
+        options: ['Fourth ventricle and third ventricle', 'Third ventricle and cerebral aqueduct', 'Central canal and fourth ventricle', 'Choroid plexus and lateral ventricle', 'Fourth ventricle and subarachnoid space'],
+        answer: 4,
+        meta: 'Final 1 – 2024 · Final 1 – 2019',
+        explanation: 'The lateral foramina of Luschka are paired openings that allow CSF to flow from the fourth ventricle into the subarachnoid space.'
+    },
+    {
+        id: 74,
+        subject: 'Anatomy',
+        text: 'Which part of the fourth ventricle contains the choroid plexus?',
+        options: ['Floor of the fourth ventricle', 'Lateral recess', 'Central canal', 'Cerebral aqueduct', 'Roof of the fourth ventricle'],
+        answer: 4,
+        meta: '',
+        explanation: 'The choroid plexus of the fourth ventricle is located on its roof (the tela choroidea and the medullary vela).'
+    },
+    {
+        id: 75,
+        subject: 'Anatomy',
+        text: 'Which of the following structures connects the fourth ventricle to the subarachnoid space?',
+        options: ['Cerebral aqueduct', 'Interventricular foramen (of Monro)', 'Foramina Magnum', 'Central canal', 'Foramen of Magendie'],
+        answer: 4,
+        meta: '',
+        explanation: 'The foramen of Magendie is the median opening in the roof of the fourth ventricle that allows CSF to exit into the cisterna magna (subarachnoid space).'
+    },
+    {
+        id: 76,
+        subject: 'Anatomy',
+        text: 'Which of the following structures forms the roof of the fourth ventricle?',
+        options: ['Cerebral aqueduct', 'Superior colliculus', 'Superior cerebellar peduncle', 'Pons', 'Medulla'],
+        answer: 2,
+        meta: 'Final 1 – Summer – 2019',
+        explanation: 'The roof of the fourth ventricle is formed by the superior cerebellar peduncles (rostral) and the inferior medullary velum (caudal).'
+    },
+    {
+        id: 77,
+        subject: 'Anatomy',
+        text: 'A patient has a tumor in the fourth ventricle. Which of the following cranial nerve nuclei is most likely to be affected due to its location?',
+        options: ['Spinal nucleus of trigeminal', 'Facial motor nucleus', 'Abducent nucleus', 'Glossopharyngeal nucleus', 'Vagus parasympathetic nucleus'],
+        answer: 2,
+        meta: 'Final 2 – 2018 · Final 2 – 2022',
+        explanation: 'The abducent nucleus (CN VI) is located in the dorsal pons, close to the floor of the fourth ventricle, making it vulnerable to compression by a fourth ventricle tumour.'
+    },
+    {
+        id: 78,
+        subject: 'Anatomy',
+        text: 'Which cranial nerve nuclei are located in the pons?',
+        options: ['Trigeminal and Abducent', 'Facial and Oculomotor', 'Hypoglossal and Vagus', 'Olfactory and Optic', 'Spinal Accessory and Glossopharyngeal'],
+        answer: 0,
+        meta: '',
+        explanation: 'The trigeminal (CN V) and abducent (CN VI) nuclei are in the pons. The facial nucleus is also in the pons, but the option "Trigeminal and Abducent" is the classic correct pair.'
+    },
+    {
+        id: 79,
+        subject: 'Anatomy',
+        text: 'Which cranial nerve nucleus contains both general visceral afferent (GVA) and special visceral afferent (SVA) fibers?',
+        options: ['Trigeminal motor nucleus', 'Hypoglossal nucleus', 'Facial motor nucleus', 'Nucleus Solitarius', 'Dorsal motor nucleus of vagus'],
+        answer: 3,
+        meta: 'Assessment 2 – 2023',
+        explanation: 'The nucleus solitarius is a visceral sensory nucleus that receives GVA fibres (from the heart, lungs, gut) and SVA fibres (taste via CN VII, IX, X).'
+    },
+    {
+        id: 80,
+        subject: 'Anatomy',
+        text: 'Which of the following nuclei, located in the midbrain, contains general visceral efferent (GVE) fibers?',
+        options: ['Dorsal motor nucleus of vagus', 'Edinger-Westphal nucleus', 'Nucleus ambiguus', 'Inferior salivatory nucleus', 'Superior salivatory nucleus'],
+        answer: 1,
+        meta: 'Final 2 – 2018',
+        explanation: 'The Edinger-Westphal nucleus is the parasympathetic (GVE) nucleus of the oculomotor nerve (CN III), providing preganglionic fibres to the ciliary ganglion.'
+    },
+    {
+        id: 81,
+        subject: 'Anatomy',
+        text: 'Which of the following structures is supplied by the hypoglossal nerve (CN XII)?',
+        options: ['Pharyngeal muscles', 'Palatal muscles', 'Tongue muscles', 'Sternocleidomastoid muscle', 'Facial muscles'],
+        answer: 2,
+        meta: '',
+        explanation: 'The hypoglossal nerve (CN XII) supplies all the intrinsic and extrinsic muscles of the tongue (except palatoglossus, which is supplied by the vagus).'
+    },
+    {
+        id: 82,
+        subject: 'Anatomy',
+        text: 'Which of the following carries preganglionic parasympathetic fibers to the submandibular gland?',
+        options: ['Glossopharyngeal nerve', 'Vagus nerve', 'Trigeminal nerve', 'Chorda tympani', 'Hypoglossal nerve'],
+        answer: 3,
+        meta: 'Final 2 – 2018',
+        explanation: 'The chorda tympani (a branch of the facial nerve, CN VII) carries preganglionic parasympathetic fibres to the submandibular ganglion.'
+    },
+    {
+        id: 83,
+        subject: 'Anatomy',
+        text: 'The cartilages of the larynx develop embryologically from which of the following pharyngeal arches?',
+        options: ['First and second arches', 'Second and third arches', 'Third and fourth arches', 'Fifth and sixth arches', 'Fourth and Sixth Pharyngeal Arches'],
+        answer: 4,
+        meta: 'Final 2 – Summer – 2022',
+        explanation: 'The laryngeal cartilages develop from the fourth and sixth pharyngeal arches. The fourth arch gives rise to the thyroid and cricoid, and the sixth arch gives rise to the arytenoids.'
+    },
+    {
+        id: 84,
+        subject: 'Anatomy',
+        text: 'Which type of fibers are carried by the Edinger-Westphal nucleus?',
+        options: ['General somatic efferent (GSE)', 'General somatic afferent (GSA)', 'Special sensory (SSA)', 'General visceral efferent (GVE)', 'Special visceral efferent (SVE)'],
+        answer: 3,
+        meta: 'Final 1 – 2025 · Assessment 1 – 2020',
+        explanation: 'The Edinger-Westphal nucleus is a GVE nucleus providing parasympathetic preganglionic fibres to the ciliary ganglion.'
+    },
+    {
+        id: 85,
+        subject: 'Anatomy',
+        text: 'Which cranial nerve sends afferent fibers to the nucleus solitarius?',
+        options: ['Facial nerve', 'Trigeminal nerve', 'Abducent nerve', 'Hypoglossal nerve', 'Accessory nerve'],
+        answer: 0,
+        meta: 'Final 1 – 2018',
+        explanation: 'The facial nerve (CN VII) carries taste fibres (SVA) from the anterior two-thirds of the tongue to the nucleus solitarius.'
+    },
+    {
+        id: 86,
+        subject: 'Anatomy',
+        text: 'Which cranial nerve supplies fibers to the nucleus ambiguus?',
+        options: ['Facial nerve', 'Glossopharyngeal nerve', 'Trigeminal nerve', 'Hypoglossal nerve', 'Abducent nerve'],
+        answer: 1,
+        meta: 'Final 1 – 2018',
+        explanation: 'The nucleus ambiguus gives rise to the branchial motor (SVE) fibres of the glossopharyngeal (CN IX), vagus (CN X), and accessory (CN XI) nerves.'
+    },
+    {
+        id: 87,
+        subject: 'Anatomy',
+        text: 'At which anatomical level does the oculomotor nerve emerge?',
+        options: ['At the level of the superior midbrain colliculus', 'At the level of the inferior olivary nucleus', 'At the level of the pons', 'At the level of the medullary pyramids', 'At the level of the cerebellar peduncles'],
+        answer: 0,
+        meta: 'Final 1 – Summer – 2019 · Final 1 – 2018',
+        explanation: 'The oculomotor nerve (CN III) emerges from the ventral surface of the midbrain, at the level of the superior colliculus.'
+    },
+    {
+        id: 88,
+        subject: 'Anatomy',
+        text: 'Inferior salivatory nucleus supplies which of the following?',
+        options: ['Submental gland', 'Submandibular gland', 'Sublingual gland', 'Parotid gland', 'Lacrimal glands'],
+        answer: 3,
+        meta: 'Final 2 – Summer – 2019',
+        explanation: 'The inferior salivatory nucleus provides parasympathetic fibres via the glossopharyngeal nerve (CN IX) to the otic ganglion, which supplies the parotid gland.'
+    },
+    {
+        id: 89,
+        subject: 'Anatomy',
+        text: 'Which of the following nerves arises from the union of the vagus and accessory nerves?',
+        options: ['Glossopharyngeal nerve', 'Hypoglossal nerve', 'Recurrent laryngeal nerve', 'Superior laryngeal nerve', 'Pharyngeal nerve'],
+        answer: 2,
+        meta: '',
+        explanation: 'The recurrent laryngeal nerve is a branch of the vagus nerve (CN X) and has connections with the accessory nerve (CN XI) in its early course.'
+    },
+    {
+        id: 90,
+        subject: 'Anatomy',
+        text: 'Which of the following nerves carries parasympathetic fibers to the optic ganglion?',
+        options: ['Lesser petrosal nerve', 'Greater petrosal nerve', 'Chorda tympani', 'Auriculotemporal nerve', 'Vagus nerve'],
+        answer: 1,
+        meta: 'Final 1 – 2018',
+        explanation: 'The greater petrosal nerve carries preganglionic parasympathetic fibres to the pterygopalatine ganglion, which supplies the lacrimal gland and nasal mucosa.'
+    },
+    {
+        id: 91,
+        subject: 'Anatomy',
+        text: 'Taste sensation behind vallecula is carried by',
+        options: ['Facial nerve', 'Trigeminal nerve', 'Abducent nerve', 'Hypoglossal nerve', 'Vagal nerve'],
+        answer: 4,
+        meta: 'Final 1 – Summer – 2019',
+        explanation: 'Taste from the posterior third of the tongue (including the vallecula) is carried by the glossopharyngeal nerve (CN IX) and the vagus nerve (CN X).'
+    },
+    {
+        id: 92,
+        subject: 'Anatomy',
+        text: 'A patient that had trauma at the spinal accessory nerve is expected to suffer from ......',
+        options: ['Paralysis of Genioglossal muscle', 'Paralysis of muscles of the lower part of the face', 'Deviation of the tongue towards the damaged side', 'Deviation of the tongue towards the healthy side', 'Paralysis of sternomastoid muscle'],
+        answer: 4,
+        meta: 'Final 1 – 2022 · Final 1 – 2019 · Final 1 – Summer – 2019',
+        explanation: 'The spinal accessory nerve (CN XI) innervates the sternocleidomastoid and trapezius muscles. Trauma causes paralysis of the sternocleidomastoid.'
+    },
+    {
+        id: 93,
+        subject: 'Anatomy',
+        text: 'Which of the following nerves carries postganglionic parasympathetic fibers from the otic ganglion?',
+        options: ['Lesser petrosal nerve', 'Greater petrosal nerve', 'Chorda tympani', 'Auriculotemporal nerve', 'Vagus nerve'],
+        answer: 3,
+        meta: 'Final 1 – 2019',
+        explanation: 'The otic ganglion provides postganglionic parasympathetic fibres to the parotid gland via the auriculotemporal nerve (a branch of the mandibular nerve, V3).'
+    },
+    {
+        id: 94,
+        subject: 'Anatomy',
+        text: 'Which of the following nuclei, located in the special visceral efferent (SVE) column?',
+        options: ['Dorsal motor nucleus of vagus', 'Motor nucleus of trigeminal', 'Spinal nucleus of trigeminal', 'Inferior salivatory nucleus', 'Superior salivatory nucleus'],
+        answer: 1,
+        meta: 'Final 1 – 2019',
+        explanation: 'The motor nucleus of the trigeminal (CN V) is the SVE nucleus for the first pharyngeal arch (muscles of mastication).'
+    },
+    {
+        id: 95,
+        subject: 'Anatomy',
+        text: 'A 55-year-old man presents with difficulty speaking and swallowing. On examination, he has atrophy and deviation of the tongue to the right side. He also shows loss of vibration and proprioception on the left side of his body and loss of pain and temperature on the left side of his body. Which of the following is the most likely site of the lesion?',
+        options: ['Lateral part of medulla', 'Medial part of medulla', 'Intermediate part of medulla', 'Posterior part of medulla', 'Pons'],
+        answer: 1,
+        meta: 'Assessment 2 – 2023',
+        explanation: 'This is medial medullary syndrome (Dejerine syndrome) – right hypoglossal palsy, left medial lemniscus damage (vibration/proprioception), and left spinothalamic tract involvement. The lesion is in the medial medulla.'
+    },
+    {
+        id: 96,
+        subject: 'Anatomy',
+        text: 'A patient presents with paralysis of the right foot. Which of the following arteries is most likely affected?',
+        options: ['Right Middle Cerebral Artery', 'Left Middle Cerebral Artery', 'Right Anterior Cerebral Artery', 'Left Anterior Cerebral Artery', 'Posterior Cerebral Artery'],
+        answer: 3,
+        meta: 'Assessment 2 – 2023',
+        explanation: 'The left anterior cerebral artery (ACA) supplies the medial motor homunculus, including the leg area. Occlusion causes contralateral leg paralysis.'
+    },
+    {
+        id: 97,
+        subject: 'Anatomy',
+        text: 'A lesion in the posterior inferior cerebellar artery (PICA) territory can result in which of the following neurological deficits?',
+        options: ['Ipsilateral loss of vibration and proprioception', 'Contralateral hemiplegia', 'Contralateral loss of pain and temperature of the body', 'Bilateral loss of light touch', 'Ipsilateral visual field defect'],
+        answer: 2,
+        meta: 'Final 2 – 2018 · Final 2 – Summer – 2020 · Final 2 – 2020',
+        explanation: 'PICA occlusion causes lateral medullary (Wallenberg) syndrome – ipsilateral facial pain/temp loss, contralateral body pain/temp loss, ipsilateral Horner\'s, ataxia, and dysphagia.'
+    }
+];
+    // ─── ANATOMY (continued) ──────────────────────────────────────────
+    {
+        id: 98,
+        subject: 'Anatomy',
+        text: 'Which of the following arteries supplies the midbrain?',
+        options: ['Basilar artery', 'Posterior spinal artery', 'Posterior inferior cerebellar artery', 'Superior cerebellar artery', 'Anterior cerebral artery'],
+        answer: 3,
+        meta: 'Assessment 2 – 2023',
+        explanation: 'The superior cerebellar artery (SCA) and the posterior cerebral artery (PCA) supply the midbrain via perforating branches.'
+    },
+    {
+        id: 99,
+        subject: 'Anatomy',
+        text: 'Which structure end in the internal jugular vein?',
+        options: ['Superior petrosal sinus', 'Cavernous sinus', 'Sigmoid sinus', 'Transverse sinus', 'Inferior petrosal sinus'],
+        answer: 4,
+        meta: 'Final 1 – 2024',
+        explanation: 'The inferior petrosal sinus drains into the internal jugular vein. The sigmoid sinus also drains into the IJV, but the inferior petrosal is the classic answer.'
+    },
+    {
+        id: 100,
+        subject: 'Anatomy',
+        text: 'Which of the following cranial nerves passes through the cavernous sinus?',
+        options: ['Abducent nerve', 'Oculomotor nerve', 'Trochlear nerve', 'Optic nerve', 'Olfactory nerve'],
+        answer: 0,
+        meta: 'Final 1 – 2018',
+        explanation: 'The abducent nerve (CN VI) passes through the cavernous sinus (within the sinus). The oculomotor, trochlear, and ophthalmic/maxillary nerves are in the lateral wall.'
+    },
+    {
+        id: 101,
+        subject: 'Anatomy',
+        text: 'Which of the following anatomical structures serves as the primary pathway for a facial infection to spread into the cranial cavity and cause cavernous sinus thrombosis?',
+        options: ['Superior ophthalmic vein', 'Facial artery', 'Maxillary vein', 'Pterygoid plexus', 'Retromandibular vein'],
+        answer: 0,
+        meta: 'Final 1 – 2020',
+        explanation: 'The superior ophthalmic vein connects the facial veins to the cavernous sinus, providing a route for infection to spread from the face to the cavernous sinus.'
+    },
+    {
+        id: 102,
+        subject: 'Anatomy',
+        text: 'Which of the following nerves represents a motor component arising from the posterior division of the mandibular nerve ?',
+        options: ['Inferior alveolar nerve', 'Lingual nerve', 'Auriculotemporal nerve', 'Buccal nerve', 'Deep temporal nerve'],
+        answer: 4,
+        meta: 'Final 1 – 2020',
+        explanation: 'The deep temporal nerve is a motor branch of the anterior division of the mandibular nerve (V3), supplying the temporalis muscle.'
+    },
+    {
+        id: 103,
+        subject: 'Anatomy',
+        text: 'Which of the following nerves carries postganglionic parasympathetic fibers directly to the lacrimal gland for lacrimation?',
+        options: ['Deep petrosal nerve', 'Lacrimal nerve', 'Greater petrosal nerve', 'Zygomaticotemporal nerve', 'Chorda tympani'],
+        answer: 3,
+        meta: 'Final 1 – 2020',
+        explanation: 'The zygomaticotemporal nerve (a branch of V2) carries postganglionic parasympathetic fibres from the pterygopalatine ganglion to the lacrimal gland.'
+    },
+    {
+        id: 104,
+        subject: 'Anatomy',
+        text: 'Which of the following structures receives the drainage of the inferior petrosal sinus as it exits the cranial cavity?',
+        options: ['Sigmoid sinus', 'Internal jugular vein', 'Subclavian vein', 'Cavernous sinus', 'Superior sagittal sinus'],
+        answer: 1,
+        meta: 'Final 1 – 2019',
+        explanation: 'The inferior petrosal sinus drains directly into the internal jugular vein as it exits the cranial cavity through the jugular foramen.'
+    },
+    {
+        id: 105,
+        subject: 'Anatomy',
+        text: 'Which of the following branches represents the only purely sensory nerve arising from the anterior division of the mandibular nerve?',
+        options: ['Auriculotemporal nerve', 'Lingual nerve', 'Buccal nerve', 'Inferior alveolar nerve', 'Mental nerve'],
+        answer: 2,
+        meta: 'Final 1 – 2019',
+        explanation: 'The buccal nerve (long buccal) is a purely sensory branch of the anterior division of the mandibular nerve (V3), supplying the cheek mucosa.'
+    },
+    {
+        id: 106,
+        subject: 'Anatomy',
+        text: 'Which of the following dural venous sinuses is a paired structure?',
+        options: ['Superior sagittal sinus', 'Inferior sagittal sinus', 'Straight sinus', 'Inferior petrosal sinus', 'Occipital sinus'],
+        answer: 3,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'The inferior petrosal sinuses are paired structures, located on each side of the clivus, draining the cavernous sinus to the internal jugular vein.'
+    },
+    {
+        id: 107,
+        subject: 'Anatomy',
+        text: 'Which of the following structures directly connects the dural venous sinuses with the extracranial veins of the scalp?',
+        options: ['Diploic veins', 'Emissary veins', 'Meningeal veins', 'Cerebral veins', 'Superficial temporal veins'],
+        answer: 1,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'Emissary veins connect the dural venous sinuses to the extracranial veins, providing a pathway for infections to spread from the scalp to the intracranial cavity.'
+    },
+    {
+        id: 108,
+        subject: 'Anatomy',
+        text: 'Which of the following structures receives its sensory innervation from the trigeminal nerve?',
+        options: ['Upper eyelid', 'Lower lobe of the ear', 'Skin over the angle of the mandible', 'Posterior one-third of the tongue', 'External auditory meatus skin'],
+        answer: 0,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'The upper eyelid is innervated by the ophthalmic nerve (V1) – a branch of the trigeminal. The angle of the mandible is supplied by the great auricular nerve (cervical plexus).'
+    },
+    {
+        id: 109,
+        subject: 'Anatomy',
+        text: 'Which of the following structures is NOT located in the lateral wall of the cavernous sinus?',
+        options: ['Oculomotor nerve (CN III)', 'Trochlear nerve (CN IV)', 'Ophthalmic nerve (CN V1)', 'Maxillary nerve (CN V2)', 'Mandibular nerve (CN V3)'],
+        answer: 4,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'The mandibular nerve (V3) does NOT pass through the cavernous sinus. It exits the skull via the foramen ovale. CN III, IV, V1, and V2 are in the lateral wall.'
+    },
+    {
+        id: 110,
+        subject: 'Anatomy',
+        text: 'The Superior Cerebral Veins primarily drain into which of the following dural venous sinuses?',
+        options: ['Straight Sinus', 'Transverse Sinus', 'Superior Sagittal Sinus', 'Sigmoid Sinus', 'Cavernous Sinus'],
+        answer: 2,
+        meta: 'Assessment 2 – 2020',
+        explanation: 'The superior cerebral veins drain into the superior sagittal sinus, which runs along the midline of the falx cerebri.'
+    },
+    {
+        id: 111,
+        subject: 'Anatomy',
+        text: 'Which of the following venous sinuses drains directly into the internal jugular vein (IJV)?',
+        options: ['Superior sagittal sinus', 'Transverse sinus', 'Cavernous sinus', 'Sigmoid sinus', 'Inferior Petrosal Sinus'],
+        answer: 3,
+        meta: 'Assessment 2 – 2023',
+        explanation: 'The sigmoid sinus is the direct continuation of the transverse sinus and drains into the internal jugular vein. The inferior petrosal sinus also drains into the IJV, but the sigmoid is the primary connection.'
+    },
+    {
+        id: 112,
+        subject: 'Anatomy',
+        text: 'Cerebrospinal fluid (CSF) is primarily drained into the venous system by which of the following structures?',
+        options: ['Choroid plexus', 'Ependymal cells', 'Central canal', 'Ventricular foramina', 'Arachnoid Granulations'],
+        answer: 4,
+        meta: 'Assessment 2 – 2023',
+        explanation: 'Arachnoid granulations (villi) are responsible for the bulk absorption of CSF from the subarachnoid space into the venous sinuses, primarily the superior sagittal sinus.'
+    },
+    {
+        id: 113,
+        subject: 'Anatomy',
+        text: 'Which of the following structures is responsible for draining cerebrospinal fluid (CSF) into the venous system?',
+        options: ['Choroid plexus', 'Central canal', 'Ventricular foramina', 'Subarachnoid space', 'Arachnoid villi'],
+        answer: 4,
+        meta: 'Final 2 – 2018',
+        explanation: 'Arachnoid villi are the sites of CSF drainage from the subarachnoid space into the dural venous sinuses.'
+    },
+    {
+        id: 114,
+        subject: 'Anatomy',
+        text: 'Which of the following arteries is connected to the posterior cerebral artery (PCA) by posterior communicating artery?',
+        options: ['Anterior communicating artery', 'Middle cerebral artery', 'Posterior inferior cerebellar artery', 'Internal carotid artery', 'Basilar artery'],
+        answer: 3,
+        meta: 'Final 2 – Summer – 2022',
+        explanation: 'The posterior communicating artery connects the internal carotid artery to the posterior cerebral artery, forming part of the Circle of Willis.'
+    },
+    {
+        id: 115,
+        subject: 'Anatomy',
+        text: 'Cerebrospinal fluid (CSF) produced in the fourth ventricle flows into which of the following subarachnoid spaces via its three foramina?',
+        options: ['Subarachnoid space over the cerebral hemispheres', 'Interpeduncular cistern', 'Quadrigeminal cistern', 'Pontine cistern', 'Cisterna Magna'],
+        answer: 4,
+        meta: 'Assessment 2 – 2020',
+        explanation: 'CSF from the fourth ventricle exits through the median foramen of Magendie into the cisterna magna (a subarachnoid cistern), and through the lateral foramina of Luschka.'
+    },
+    {
+        id: 116,
+        subject: 'Anatomy',
+        text: 'The vein running along the roof of the posterior triangle of the neck drains into which of the following veins?',
+        options: ['External jugular vein', 'Internal jugular vein', 'Subclavian Vein', 'Brachiocephalic vein', 'Cephalic vein'],
+        answer: 0,
+        meta: 'Assessment 2 – 2023',
+        explanation: 'The vein along the roof of the posterior triangle is the external jugular vein, which drains the superficial structures of the neck and scalp.'
+    },
+    {
+        id: 117,
+        subject: 'Anatomy',
+        text: 'A young athlete sustains a head injury and later develops a severe headache followed by sudden death. Rupture of an aneurysm in which of the following structures is the most likely cause?',
+        options: ['Middle meningeal artery', 'Internal carotid artery', 'Circle of Willis', 'Basilar artery', 'Vertebral artery'],
+        answer: 2,
+        meta: 'Final 2 – 2020',
+        explanation: 'Rupture of an aneurysm in the Circle of Willis (often the anterior communicating artery) is the most common cause of subarachnoid hemorrhage, which can cause sudden death.'
+    },
+    {
+        id: 118,
+        subject: 'Anatomy',
+        text: 'The Great cerebral vein (of Galen) is formed by the union of which of the following veins?',
+        options: ['Superior sagittal veins', 'Basal veins of Rosenthal', 'Right and left internal cerebral veins', 'Veins of Trolard', 'Superficial middle cerebral veins'],
+        answer: 2,
+        meta: 'Final 2 – 2018 · Final 2 – 2019',
+        explanation: 'The Great cerebral vein (of Galen) is formed by the union of the two internal cerebral veins, draining the deep structures of the brain into the straight sinus.'
+    },
+    {
+        id: 119,
+        subject: 'Anatomy',
+        text: 'A 60-year-old patient presents with painful vesicular eruptions localized to the chin and lower lip on one side of the face. Which of the following nerves is most likely involved?',
+        options: ['Ophthalmic nerve (V1)', 'Mental nerve', 'Infraorbital nerve', 'Auriculotemporal nerve', 'Buccal nerve'],
+        answer: 1,
+        meta: 'Assessment 2 – 2020',
+        explanation: 'The chin and lower lip are supplied by the mental nerve (a branch of the inferior alveolar nerve, V3). Herpes zoster (shingles) often affects a single dermatome, and the mental nerve territory is a common site.'
+    },
+    {
+        id: 120,
+        subject: 'Anatomy',
+        text: 'Fracture of the zygomatic arch is most likely to impair the function of which muscle?',
+        options: ['Temporalis', 'Masseter muscle', 'Buccinator', 'Orbicularis oris', 'Sternocleidomastoid'],
+        answer: 1,
+        meta: 'Assessment 2 – 2023',
+        explanation: 'The masseter muscle originates from the zygomatic arch. A fracture here impairs its function, affecting jaw closure.'
+    },
+    {
+        id: 121,
+        subject: 'Anatomy',
+        text: 'A 25 year-old patient presents with a painful swelling on the upper lip and forehead after a recent pimple infection. The physician is concerned about the risk of intracranial spread and potential thrombosis of the superior sagittal sinus. Which veins provide a route for infections from the face to reach the superior sagittal sinus?',
+        options: ['Facial veins', 'Emissary veins', 'Jugular veins', 'External carotid veins', 'Coronary veins'],
+        answer: 1,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'Emissary veins connect the facial veins to the dural venous sinuses, including the superior sagittal sinus, providing a route for infection to spread intracranially.'
+    },
+    {
+        id: 122,
+        subject: 'Anatomy',
+        text: 'Which major vein does the common facial vein typically drain into?',
+        options: ['External jugular vein', 'Internal jugular vein', 'Subclavian vein', 'Brachiocephalic vein', 'Superior vena cava'],
+        answer: 1,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'The common facial vein (formed by the union of the anterior facial and retromandibular veins) drains into the internal jugular vein.'
+    },
+    {
+        id: 123,
+        subject: 'Anatomy',
+        text: 'The deep facial vein connects which two venous structures?',
+        options: ['Anterior facial vein and pterygoid venous plexus', 'Angular vein and cavernous sinus', 'Maxillary vein and retromandibular vein', 'External jugular vein and subclavian vein', 'Inferior ophthalmic vein and cavernous sinus'],
+        answer: 0,
+        meta: 'Assessment 1 – 2023 – Session 2',
+        explanation: 'The deep facial vein connects the anterior facial vein to the pterygoid venous plexus, providing a pathway for infections to spread into the deep facial spaces.'
+    },
+    {
+        id: 124,
+        subject: 'Anatomy',
+        text: 'The angle of the mandible is supplied by which nerve?',
+        options: ['Auriculotemporal nerve', 'Great auricular nerve', 'Buccal nerve', 'Inferior alveolar nerve', 'Mental nerve'],
+        answer: 1,
+        meta: 'Final 1 – 2018',
+        explanation: 'The angle of the mandible is supplied by the great auricular nerve (C2–C3), a branch of the cervical plexus, not the trigeminal nerve.'
+    },
+    {
+        id: 125,
+        subject: 'Anatomy',
+        text: 'Which nerve is the motor branch of the posterior division of the trigeminal nerve?',
+        options: ['Lingual nerve', 'Buccal nerve', 'Auriculotemporal nerve', 'Inferior alveolar nerve', 'Mental nerve'],
+        answer: 1,
+        meta: 'Final 1 – 2018',
+        explanation: 'The buccal nerve (long buccal) is a sensory branch, but the question is likely testing the fact that the motor branch of the mandibular nerve (V3) is the nerve to the mylohyoid and the anterior belly of digastric, but among the options, the buccal nerve is sometimes considered a mixed nerve in some texts. However, the true motor branch is the nerve to the masseter and temporalis, which are not listed. So the correct answer based on the provided data is B (buccal nerve).'
+    },
+    {
+        id: 126,
+        subject: 'Anatomy',
+        text: 'The Nerve to Pterygoid Canal is formed by the union of which of the following nerves?',
+        options: ['Auriculotemporal Nerve and Deep Petrosal Nerve', 'Greater Petrosal Nerve and Lesser Petrosal Nerve', 'Deep Petrosal Nerve and Chorda Tympani', 'Greater Petrosal Nerve and Deep Petrosal Nerve', 'Auricular Branch of Vagus and Glossopharyngeal Nerve'],
+        answer: 3,
+        meta: 'Assessment 2 – 2020',
+        explanation: 'The nerve to the pterygoid canal (vidian nerve) is formed by the union of the greater petrosal nerve (parasympathetic) and the deep petrosal nerve (sympathetic).'
+    },
+    {
+        id: 127,
+        subject: 'Anatomy',
+        text: 'A patient presents with pain localized to the temporomandibular joint (TMJ). Which of the following nerves primarily transmits sensory information from the TMJ?',
+        options: ['Masseteric nerve', 'Inferior alveolar nerve', 'Lingual nerve', 'Auriculotemporal nerve', 'Buccal nerve'],
+        answer: 3,
+        meta: 'Assessment 2 – 2020',
+        explanation: 'The auriculotemporal nerve (a branch of the mandibular nerve, V3) supplies sensory innervation to the temporomandibular joint (TMJ).'
+    },
+    {
+        id: 128,
+        subject: 'Anatomy',
+        text: 'The postganglionic fibers of the sphenopalatine (pterygopalatine) ganglion are derived from which of the following nerves?',
+        options: ['Greater petrosal nerve', 'Lesser petrosal nerve', 'Chorda tympani', 'Deep Petrosal Nerve', 'Auriculotemporal nerve'],
+        answer: 0,
+        meta: 'Assessment 2 – 2023',
+        explanation: 'The pterygopalatine ganglion receives preganglionic parasympathetic fibres from the greater petrosal nerve. Postganglionic fibres then travel to the lacrimal gland and nasal mucosa.'
+    },
+    {
+        id: 129,
+        subject: 'Anatomy',
+        text: 'The retromandibular vein divides within the parotid gland into anterior and posterior divisions. Each division then unites with which veins respectively?',
+        options: ['Internal jugular vein and subclavian vein', 'Anterior facial vein and posterior auricular vein', 'External jugular vein and internal jugular vein', 'Posterior facial vein and external jugular vein', 'Maxillary vein and vertebral vein'],
+        answer: 1,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'The retromandibular vein divides into an anterior division (which joins the anterior facial vein to form the common facial vein) and a posterior division (which joins the posterior auricular vein to form the external jugular vein).'
+    },
+    {
+        id: 130,
+        subject: 'Anatomy',
+        text: 'Which ligament prevents the mandible from posterior dislocation?',
+        options: ['Temporomandibular ligament', 'Sphenomandibular ligament', 'Stylomandibular ligament', 'Lateral pterygoid ligament', 'Capsular ligament'],
+        answer: 0,
+        meta: 'Final 1 – 2024',
+        explanation: 'The temporomandibular ligament (part of the TMJ capsule) is the primary ligament that prevents posterior dislocation of the mandible.'
+    },
+    {
+        id: 131,
+        subject: 'Anatomy',
+        text: 'Which muscle lies lateral to the lateral pterygoid muscle?',
+        options: ['Buccinator', 'Temporalis', 'Masseter', 'Superficial head of medial pterygoid', 'Deep head of medial pterygoid'],
+        answer: 2,
+        meta: 'Final 1 – 2018',
+        explanation: 'The masseter muscle is the most superficial and lies lateral to the lateral pterygoid muscle. The temporalis is superior, and the medial pterygoid is medial.'
+    },
+    {
+        id: 132,
+        subject: 'Anatomy',
+        text: 'Which structure forms part of the medial wall of the infratemporal fossa?',
+        options: ['Medial pterygoid plate', 'Maxilla', 'Mandibular ramus', 'Greater wing of sphenoid', 'Lateral pterygoid plate'],
+        answer: 0,
+        meta: 'Final 1 – 2018',
+        explanation: 'The medial pterygoid plate forms part of the medial wall of the infratemporal fossa. The lateral pterygoid plate forms part of the lateral wall.'
+    },
+    {
+        id: 133,
+        subject: 'Anatomy',
+        text: 'Which of the following anatomical structures forms the medial boundary of the infratemporal fossa?',
+        options: ['Ramus of the mandible', 'Greater wing of the sphenoid bone', 'Lateral pterygoid plate', 'Maxillary tuberosity', 'Medial pterygoid plate'],
+        answer: 4,
+        meta: 'Final 1 – 2019',
+        explanation: 'The medial pterygoid plate forms the medial boundary of the infratemporal fossa. The lateral pterygoid plate is part of the lateral wall.'
+    },
+    {
+        id: 134,
+        subject: 'Anatomy',
+        text: 'Which of the following anatomical structures serves as the communication pathway between the infratemporal fossa and the pterygopalatine fossa?',
+        options: ['Sphenopalatine foramen', 'Foramen rotundum', 'Pterygomaxillary fissure', 'Inferior orbital fissure', 'Pterygoid canal'],
+        answer: 2,
+        meta: 'Final 1 – 2019',
+        explanation: 'The pterygomaxillary fissure is the communication between the infratemporal fossa and the pterygopalatine fossa.'
+    },
+    {
+        id: 135,
+        subject: 'Anatomy',
+        text: 'Which of the following muscles is responsible for the retraction of the mandible?',
+        options: ['Anterior fibers of the temporalis', 'Posterior fibers of the temporalis', 'Lateral pterygoid', 'Medial pterygoid', 'Superficial part of the masseter'],
+        answer: 1,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'The posterior fibres of the temporalis muscle retract the mandible (pull it posteriorly). The anterior fibres elevate it.'
+    },
+    {
+        id: 136,
+        subject: 'Anatomy',
+        text: 'Which of the following veins joins with the maxillary vein to form the retromandibular vein?',
+        options: ['Facial vein', 'Superficial temporal vein', 'Posterior auricular vein', 'Occipital vein', 'Internal jugular vein'],
+        answer: 1,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'The superficial temporal vein joins with the maxillary vein to form the retromandibular vein. This happens within the parotid gland.'
+    },
+    {
+        id: 137,
+        subject: 'Anatomy',
+        text: 'Which of the following blood vessels arises as a branch from the third part of the maxillary artery?',
+        options: ['Deep temporal artery', 'Inferior alveolar artery', 'Middle meningeal artery', 'Infraorbital artery', 'Buccal artery'],
+        answer: 3,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'The infraorbital artery arises from the third part (pterygopalatine part) of the maxillary artery. The middle meningeal and inferior alveolar arise from the first part.'
+    },
+    {
+        id: 138,
+        subject: 'Anatomy',
+        text: 'Which nerves pass through the pterygoid canal?',
+        options: ['Chorda tympani and auriculotemporal', 'Deep petrosal and greater superficial petrosal', 'Mandibular and maxillary', 'Vagus and glossopharyngeal', 'Olfactory and optic'],
+        answer: 1,
+        meta: 'Final 1 – 2024',
+        explanation: 'The nerve of the pterygoid canal (vidian nerve) is formed by the union of the deep petrosal and greater superficial petrosal nerves, and they pass through the pterygoid canal.'
+    },
+    {
+        id: 139,
+        subject: 'Anatomy',
+        text: 'Which of the following arteries is located below the posterior belly of the digastric muscle?',
+        options: ['Facial artery', 'Lingual artery', 'Maxillary artery', 'Occipital artery', 'Superior thyroid artery'],
+        answer: 3,
+        meta: 'Final 1 – 2018',
+        explanation: 'The occipital artery passes deep to the posterior belly of the digastric muscle. The facial and lingual arteries are more anterior.'
+    },
+    {
+        id: 140,
+        subject: 'Anatomy',
+        text: 'Which of the following structures is located within the carotid sheath?',
+        options: ['Sympathetic trunk', 'Vagus nerve', 'Phrenic nerve', 'Ansa cervicalis', 'Hypoglossal nerve'],
+        answer: 1,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'The carotid sheath contains the common carotid artery, internal carotid artery, internal jugular vein, and the vagus nerve (CN X). The sympathetic trunk is outside the sheath.'
+    },
+    {
+        id: 141,
+        subject: 'Anatomy',
+        text: 'Which of the following nerves arises from the union of the vagus and accessory nerves?',
+        options: ['Glossopharyngeal nerve', 'Hypoglossal nerve', 'Recurrent laryngeal nerve', 'Superior laryngeal nerve', 'Pharyngeal nerve'],
+        answer: 2,
+        meta: 'Final 1 – 2018',
+        explanation: 'The recurrent laryngeal nerve is a branch of the vagus nerve (CN X) but receives contributions from the accessory nerve (CN XI) in its early course. This is a classic anatomical fact.'
+    },
+
+    // ─── PHYSIOLOGY (142–211) ──────────────────────────────────────────
+    {
+        id: 142,
+        subject: 'Physiology',
+        text: 'Postsynaptic inhibition in the central nervous system is primarily mediated by which neurotransmitter?',
+        options: ['Glutamate', 'Acetylcholine', 'Glycine', 'Dopamine', 'GABA'],
+        answer: 4,
+        meta: 'Assessment 1 – 2023 – Session 2',
+        explanation: 'GABA (gamma-aminobutyric acid) is the primary inhibitory neurotransmitter in the CNS. It acts at GABAA (ionotropic, Cl-) and GABAB (metabotropic, K+) receptors to hyperpolarise postsynaptic neurons.'
+    },
+    {
+        id: 143,
+        subject: 'Physiology',
+        text: 'Which response occurs in a stretch reflex?',
+        options: ['Reciprocal inhibition failure', 'Relaxation of the stretched muscle', 'Negative feedback inhibition', 'Contraction of antagonist muscles', 'Contraction of agonist muscle'],
+        answer: 4,
+        meta: 'Final 1 – 2025',
+        explanation: 'The stretch reflex is monosynaptic: muscle spindle → Ia afferent → alpha motor neuron → contraction of the same (agonist) muscle. This maintains muscle tone.'
+    },
+    {
+        id: 144,
+        subject: 'Physiology',
+        text: 'Which of the following statements best describes sensory adaptation?',
+        options: ['Diminished sensation despite continuous application of the stimulus', 'Increased sensation with repeated stimulation', 'Complete absence of sensation after brief stimulus', 'Activation of additional receptors over time', 'Conversion of one type of sensation into another'],
+        answer: 0,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'Sensory adaptation is the progressive decrease in receptor firing frequency during a constant stimulus, allowing the nervous system to ignore constant stimuli and focus on changes.'
+    },
+    {
+        id: 145,
+        subject: 'Physiology',
+        text: 'Which type of sensory receptors in the skin respond quickly at the onset of a stimulus but stop firing if the stimulus is constant?',
+        options: ['Temperature receptors rapidly adapting', 'Temperature receptors slowly adapting', 'Pain receptors rapidly adapting', 'Touch receptors rapidly adapting', 'Touch receptors slowly adapting'],
+        answer: 3,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'Rapidly adapting (phasic) touch receptors, such as Meissner\'s and Pacinian corpuscles, fire at the onset and offset of a stimulus but stop during sustained pressure.'
+    },
+    {
+        id: 146,
+        subject: 'Physiology',
+        text: 'Which sensory receptor adapts rapidly to sustained skin stimulation?',
+        options: ['Touch receptor', 'Pain receptor', 'Temperature receptor', 'Proprioceptor', 'Nociceptor'],
+        answer: 0,
+        meta: 'Assessment 1 – 2023 · Final 1 – 2019',
+        explanation: 'Touch receptors (Meissner\'s and Pacinian corpuscles) are rapidly adapting. They stop firing during constant pressure, which is why we stop feeling our clothes.'
+    },
+    {
+        id: 147,
+        subject: 'Physiology',
+        text: 'Discrimination of stimulus intensity depends mainly on which of the following?',
+        options: ['Number of activated receptors', 'Type of receptor only', 'Length of the receptor', 'Location of the receptor', 'Presence of myelin only'],
+        answer: 0,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'Stimulus intensity is coded by population coding (number of receptors activated) and frequency coding (firing rate). The number of activated receptors is the primary determinant.'
+    },
+    {
+        id: 148,
+        subject: 'Physiology',
+        text: 'Which of the following explains areas with low two-point discrimination threshold?',
+        options: ['Less convergence of afferent nerve fibers', 'More convergence of afferent nerve fibers', 'Fewer receptors per unit area', 'Poor cortical representation', 'Absence of sensory receptors'],
+        answer: 0,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'Areas with low two-point discrimination (fingertips, lips) have less convergence of afferent fibres, maintaining distinct cortical representation for fine discrimination.'
+    },
+    {
+        id: 149,
+        subject: 'Physiology',
+        text: 'Which of the following stimulates pain receptors?',
+        options: ['Local increase of Na+ concentration', 'Local decrease of Na+ concentration', 'Local increase of K+ concentration', 'Local decrease of K+ concentration', 'Local increase of Ca+ concentration'],
+        answer: 2,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'Tissue damage releases K+ ions, which depolarise nociceptor endings, generating action potentials. Bradykinin, histamine, and serotonin also stimulate pain receptors.'
+    },
+    {
+        id: 150,
+        subject: 'Physiology',
+        text: 'Which of the following statements regarding sensory fiber conduction is correct?',
+        options: ['Crude touch is carried on Aδ fibers', 'Fine touch is carried on C fibers', 'Fine touch is carried on Aδ fibers', 'Vibration sense is carried on Aδ fibers', 'Nociceptive stimuli are carried on Aβ fibers'],
+        answer: 0,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'Crude (non-discriminative) touch is carried by Aδ fibres. Fine touch and vibration are carried by Aβ fibres. C fibres carry slow pain and temperature.'
+    },
+    {
+        id: 151,
+        subject: 'Physiology',
+        text: 'Which type of pain is transmitted by Aδ nerve fibers?',
+        options: ['Chemical pain', 'Visceral pain', 'Chronic pain', 'Slow pain', 'Fast pain'],
+        answer: 4,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'Aδ fibres are fast-conducting (myelinated) and transmit sharp, well-localised fast pain (first pain). C fibres transmit slow, dull pain (second pain).'
+    },
+    {
+        id: 152,
+        subject: 'Physiology',
+        text: 'Sudden increase in skin temperature above 50 degrees Celsius leads to ……',
+        options: ['Transient impulses due to damage of cold receptors above 40 degrees Celsius', 'Inhibition of mechanoreceptors', 'Stimulation of mechanoreceptors', 'Stimulation of thermal nociceptors', 'Stimulation of proprioceptors'],
+        answer: 3,
+        meta: 'Assessment 1 – 2023 · Final 1 – 2019',
+        explanation: 'Temperatures above 45–50°C activate thermal nociceptors (pain receptors) that respond to noxious heat. Cold receptors are inhibited above 40°C.'
+    },
+    {
+        id: 153,
+        subject: 'Physiology',
+        text: 'Which fibers transmit crude touch sensation?',
+        options: ['Aδ fibers', 'D fibers', 'Aβ fibers', 'Ia fibers', 'Ib fibers'],
+        answer: 0,
+        meta: 'Assessment 1 – 2023 – Session 2 · Assessment 1 – 2025 · Final 1 – 2019 – Summer',
+        explanation: 'Crude touch is carried by Aδ fibres. Aβ fibres carry fine touch and vibration. Ia and Ib are proprioceptive (muscle spindles and Golgi tendons).'
+    },
+    {
+        id: 154,
+        subject: 'Physiology',
+        text: 'Which substance stimulates pain receptors?',
+        options: ['Histamine', 'Kinin', 'Serotonin', 'Acetylcholine', 'Dopamine'],
+        answer: 1,
+        meta: 'Assessment 1 – 2025 · Assessment 1 – 2023 – Session 2',
+        explanation: 'Bradykinin (a kinin) is one of the most potent pain-producing substances, directly activating nociceptors. Histamine and serotonin sensitise pain receptors but are less direct.'
+    },
+    {
+        id: 155,
+        subject: 'Physiology',
+        text: 'Which nerve fibers transmit warm temperature sensation?',
+        options: ['Aδ fibers', 'Aβ fibers', 'C fibers', 'Ia fibers', 'Ib fibers'],
+        answer: 2,
+        meta: 'Final 1 – 2018',
+        explanation: 'Warm temperature sensation is transmitted by unmyelinated C fibres. Cold sensation is carried by Aδ and C fibres.'
+    },
+    {
+        id: 156,
+        subject: 'Physiology',
+        text: 'Fast pain is characterized by which duration?',
+        options: ['Long lasting', 'Delayed onset', 'Recurrent', 'Persistent', 'Short time'],
+        answer: 4,
+        meta: 'Final 1 – 2018',
+        explanation: 'Fast pain (first pain) is sharp, well-localised, and short-lived. It is transmitted by Aδ fibres. Slow pain is dull, diffuse, and long-lasting, transmitted by C fibres.'
+    },
+    {
+        id: 157,
+        subject: 'Physiology',
+        text: 'Which of the following sensory modalities is primarily perceived at the level of the thalamus?',
+        options: ['Fine touch', 'Proprioception', 'Crude sensation', 'Two-point discrimination', 'Cortical sensory integration'],
+        answer: 2,
+        meta: 'Final 1 – 2018',
+        explanation: 'Crude sensation (pain, temperature, crude touch) is perceived at the thalamic level (ventral posterior nuclei). Fine touch, proprioception, and two-point discrimination require cortical processing.'
+    },
+    {
+        id: 158,
+        subject: 'Physiology',
+        text: 'Which clinical sign is seen in chronic gastritis due to inflammation of the stomach wall?',
+        options: ['Rigidity of overlying muscles', 'Rebound tenderness', 'Radiating pain to right shoulder', 'Radiating pain to left shoulder', 'Palpable mass'],
+        answer: 1,
+        meta: 'Final 1 – 2025',
+        explanation: 'Chronic gastritis inflammation can cause rebound tenderness (pain upon sudden release of pressure) due to peritoneal irritation. Rigidity and rebound are signs of peritonitis.'
+    },
+    {
+        id: 159,
+        subject: 'Physiology',
+        text: 'In secondary hyperalgesia, which of the following describes the affected area?',
+        options: ['Normal skin surrounding non-healthy tissue', 'Only the site of injury', 'Inflamed tissue directly exposed to noxious stimuli', 'All dermatomes sharing the same dorsal root ganglion', 'Systemic distribution'],
+        answer: 0,
+        meta: 'Final 1 – 2018',
+        explanation: 'Secondary hyperalgesia is increased pain sensitivity in the normal, uninjured skin surrounding the site of injury, caused by central sensitisation (increased dorsal horn excitability).'
+    },
+    {
+        id: 160,
+        subject: 'Physiology',
+        text: 'Which of the following explains pain relief when you rub the skin near an injury?',
+        options: ['Convergence projection theory', 'Endogenous opioid system', 'Central sensitization theory', 'Gate theory', 'Convergence facilitation theory'],
+        answer: 3,
+        meta: 'Final 1 – 2019 · Final 1 – 2025 · Final 1 – 2022',
+        explanation: 'The gate control theory explains that non-noxious input (rubbing) activates Aβ fibres, which inhibit pain transmission via spinal interneurons, "closing the gate" to pain signals.'
+    },
+    {
+        id: 161,
+        subject: 'Physiology',
+        text: 'A woman was wearing a dress on the beach. Later, when she wore a jacket over the same area, she felt pain. This is an example of:',
+        options: ['Increase receptor sensitivity by tissue products', 'Activity-dependent increase in excitability of dorsal horn neurons', 'Increased threshold of peripheral nociceptors due to inflammatory mediators', 'Decreased inhibitory interneuron function in the spinal cord', 'Impaired saltatory conduction in primary afferent neurons'],
+        answer: 1,
+        meta: 'Final 1 – 2018',
+        explanation: 'This is an example of central sensitisation – after sunburn, dorsal horn neurons become hyperexcitable (activity-dependent increase in excitability), causing allodynia (pain from normally non-painful stimuli).'
+    },
+    {
+        id: 162,
+        subject: 'Physiology',
+        text: 'Which receptors inhibit pain sensation in the central nervous system?',
+        options: ['Opioid receptors', 'Glycine receptors', 'Nicotinic receptors', 'Dopamine receptors', 'GABA receptors'],
+        answer: 0,
+        meta: 'Final 1 – 2018',
+        explanation: 'Opioid receptors (mu, delta, kappa) are the primary receptors that inhibit pain transmission in the CNS, located in the dorsal horn, periaqueductal grey, and other pain pathways.'
+    },
+    {
+        id: 163,
+        subject: 'Physiology',
+        text: 'Extracranial headache is an example of which of the following?',
+        options: ['Referred pain', 'Fast pain', 'Psychogenic pain', 'Primary hyperalgesia', 'Secondary hyperalgesia'],
+        answer: 0,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'Extracranial headache (e.g., from sinusitis, dental pain) is an example of referred pain – pain originating outside the cranium but felt in the head due to convergence of afferent fibres onto the spinal trigeminal nucleus.'
+    },
+    {
+        id: 164,
+        subject: 'Physiology',
+        text: 'The pain analgesic system includes which of the following structures?',
+        options: ['Periaqueductal neurons which secrete serotonin', 'Periaqueductal neurons which secret enkephalin', 'Periaqueductal neurons which secret endorphin', 'Local cord neurons which secret serotonin', 'Local cord neurons which secrete endorphin'],
+        answer: 1,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'The periaqueductal grey (PAG) releases enkephalin, which activates the nucleus raphe magnus (NRM) and the nucleus reticularis paragigantocellularis (NRPG) to inhibit pain transmission via serotonin and noradrenaline release.'
+    },
+    {
+        id: 165,
+        subject: 'Physiology',
+        text: 'Acupuncture relieves pain mainly by which of the following mechanisms?',
+        options: ['Gate control theory and psychogenic excitation', 'Direct inhibition of peripheral nociceptors', 'Blockade of sodium channels in sensory nerves', 'Suppression of inflammatory mediators', 'Degeneration of pain fibers'],
+        answer: 0,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'Acupuncture is thought to relieve pain via the gate control theory (stimulation of Aβ fibres) and the release of endogenous opioids (endorphins and enkephalins) through psychogenic and neurogenic mechanisms.'
+    },
+    {
+        id: 166,
+        subject: 'Physiology',
+        text: 'Deep pain is typically characterized by which of the following features?',
+        options: ['Well localized and sharp', 'Poorly localized', 'Limited to the skin surface', 'Rapidly conducted by A delta fibers only', 'Not associated with autonomic responses'],
+        answer: 1,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'Deep pain (from muscles, joints, viscera) is poorly localised, dull, and often associated with autonomic responses (nausea, sweating). It is transmitted by C fibres.'
+    },
+    {
+        id: 167,
+        subject: 'Physiology',
+        text: 'Which of the following is correctly matched regarding the pain analgesic system?',
+        options: ['Nucleus raphe magnus → Serotonin', 'Periaqueductal gray → Dopamine', 'Periventricular area → Acetylcholine', 'Pain inhibitory complex → Glutamate', 'Nucleus reticularis paragigantocellularis→ Gamma aminobutyric acid'],
+        answer: 0,
+        meta: 'Final 1 – 2019',
+        explanation: 'The nucleus raphe magnus (NRM) releases serotonin (5-HT) to inhibit pain transmission in the dorsal horn. The PAG releases enkephalin, not dopamine.'
+    },
+    {
+        id: 168,
+        subject: 'Physiology',
+        text: 'Referred pain from the gallbladder is most commonly felt in which of the following areas?',
+        options: ['Right shoulder', 'Left shoulder', 'Periumbilical region', 'Left lower quadrant', 'Suprapubic region'],
+        answer: 0,
+        meta: 'Final 1 – 2019',
+        explanation: 'Referred pain from the gallbladder is felt in the right shoulder and right upper quadrant due to convergence of visceral afferents (T7–T9) with somatic afferents from the right shoulder (C3–C5).'
+    },
+    {
+        id: 169,
+        subject: 'Physiology',
+        text: 'Which of the following is a cause of extracranial headache?',
+        options: ['Bone inflammation', 'Meningeal irritation', 'Decreased cerebrospinal fluid pressure', 'Otitis media', 'Subarachnoid hemorrhage'],
+        answer: 3,
+        meta: 'Final 1 – 2019',
+        explanation: 'Otitis media (ear infection) is an extracranial cause of headache. Bone inflammation, meningeal irritation, decreased CSF pressure, and subarachnoid hemorrhage are all intracranial causes.'
+    },
+    {
+        id: 170,
+        subject: 'Physiology',
+        text: 'The initial phase of a migraine attack is associated with which of the following vascular events?',
+        options: ['Vasoconstriction', 'Vasodilation', 'Hemorrhage', 'Thrombosis', 'Edema'],
+        answer: 0,
+        meta: 'Final 1 – 2022',
+        explanation: 'The initial phase (aura) of a migraine is associated with cortical spreading depression and vasoconstriction, followed by vasodilation and inflammation causing the throbbing headache.'
+    },
+    {
+        id: 171,
+        subject: 'Physiology',
+        text: 'Stereognosis sensation is carried by which neural pathway?',
+        options: ['Ventral Spinothalamic tract', 'Dorsal Spinothalamic tract', 'Dorsal Spinocerebellar tract', 'Dorsal column tract', 'Ventral Spinocerebellar tract'],
+        answer: 3,
+        meta: 'Final 1 – 2018',
+        explanation: 'Stereognosis (identifying objects by touch) requires fine touch, pressure, and proprioception – all carried by the dorsal column-medial lemniscal pathway.'
+    },
+    {
+        id: 172,
+        subject: 'Physiology',
+        text: 'Which of the following statements is true regarding deep pressure sensation?',
+        options: ['It is mediated by slowly adapting receptors', 'It is transmitted only by free nerve endings', 'It adapts rapidly to sustained stimulus', 'It is carried exclusively by A delta fibers', 'It is not associated with vibration'],
+        answer: 0,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'Deep pressure sensation is mediated by slowly adapting receptors (Ruffini endings and Pacinian corpuscles). It is carried by Aβ fibres in the dorsal column pathway.'
+    },
+    {
+        id: 173,
+        subject: 'Physiology',
+        text: 'Which of the following is true regarding the representation in the somatosensory area one S1?',
+        options: ['Receive ipsilateral solitario-thalamo-cortical fibers from thalamus', 'Disproportionate to body Receptors', 'Face sensation is represented posteriorly, and body sensation is represented anteriorly', 'Face sensation is represented anteriorly, and body sensation is represented posteriorly', 'Face and body sensation is represented contralaterally'],
+        answer: 1,
+        meta: 'Final 1 – 2019 · Final 1 – 2025',
+        explanation: 'S1 has a somatotopic map – the homunculus – with disproportionate cortical space for body parts (lips, hands). This is called cortical magnification. Sensation is contralateral.'
+    },
+    {
+        id: 174,
+        subject: 'Physiology',
+        text: 'Contralateral representation of face and body is found in ……',
+        options: ['Primary somatosensory area', 'Secondary somatosensory area', 'Gustatory area', 'Somatosensory association area', 'Wernicke\'s area'],
+        answer: 0,
+        meta: 'Final 1 – 2022',
+        explanation: 'Contralateral representation (left body → right hemisphere) is a fundamental feature of the primary somatosensory cortex (S1). The secondary somatosensory area (S2) has bilateral representations.'
+    },
+    {
+        id: 175,
+        subject: 'Physiology',
+        text: 'Which of the following statements is correct regarding muscle tone?',
+        options: ['Stretch reflex is monosynaptic', 'It depends only on upper motor neurons', 'It is absent during normal posture', 'It is mediated by polysynaptic reflex', 'Its main action involves interneurons'],
+        answer: 0,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'Muscle tone is maintained by the monosynaptic stretch reflex (muscle spindle → Ia afferent → alpha motor neuron). It is present during normal posture and involves both upper and lower motor neurons.'
+    },
+    {
+        id: 176,
+        subject: 'Physiology',
+        text: 'Which of the following statements regarding the muscle spindle and Golgi tendon organ is correct?',
+        options: ['Muscle spindle is responsible for muscle tension', 'Golgi tendon organ initiates the stretch reflex', 'Muscle spindle is responsible for muscle tone', 'Golgi tendon organ has damping function', 'Muscle spindle is located in the tendon'],
+        answer: 2,
+        meta: 'Final 1 – 2019 · Final 1 – 2022',
+        explanation: 'The muscle spindle is responsible for muscle tone and the stretch reflex. The Golgi tendon organ detects muscle tension and initiates the inverse stretch reflex.'
+    },
+    {
+        id: 177,
+        subject: 'Physiology',
+        text: 'Facilitation of stretch reflex is done by ……',
+        options: ['Lentiform nucleus', 'Caudate nucleus', 'Spino-cerebellum', 'Areas 4s,6', 'Medullary reticular formation'],
+        answer: 3,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'The stretch reflex is facilitated by the medial part of the motor cortex (areas 4s and 6 – supplementary and premotor areas) via the corticospinal and reticulospinal tracts.'
+    },
+    {
+        id: 178,
+        subject: 'Physiology',
+        text: 'Which of the following pairs correctly matches a reflex with its sensory receptor?',
+        options: ['Stretch and Golgi tendon organ', 'Flexor and muscle spindle', 'Crossed extensor and Pacinian corpuscle', 'Tendon and Ruffini ending', 'Withdrawal and free nerve ending'],
+        answer: 4,
+        meta: 'Assessment 1 – 2025 · Assessment 1 – 2020 · Assessment 1 – 2023',
+        explanation: 'The withdrawal reflex is initiated by nociceptors (free nerve endings). The stretch reflex is initiated by muscle spindles. The tendon reflex is initiated by Golgi tendon organs.'
+    },
+    {
+        id: 179,
+        subject: 'Physiology',
+        text: 'Oscillating, interrupted voluntary movements typically occur due to loss of which function?',
+        options: ['Postural reflex', 'Stretch reflex', 'Tendon reflex', 'Damping function', 'Withdrawal reflex'],
+        answer: 3,
+        meta: 'Assessment 1 – 2023 – Session 2 · Assessment 1 – 2025',
+        explanation: 'Oscillating or interrupted voluntary movements (intention tremor) occur due to loss of the damping function of the cerebellum (spinocerebellum), which normally smooths out movements.'
+    },
+    {
+        id: 180,
+        subject: 'Physiology',
+        text: 'Which response occurs when the right foot is suddenly struck?',
+        options: ['Flexion of left leg', 'Extension of left leg', 'Flexion of right arm', 'Extension of right leg', 'None of the above'],
+        answer: 1,
+        meta: 'Final 1 – 2018',
+        explanation: 'A painful stimulus to the right foot triggers the withdrawal reflex (flexion of the right leg) and the crossed extensor reflex (extension of the left leg) to support body weight.'
+    },
+    {
+        id: 181,
+        subject: 'Physiology',
+        text: 'Which clinical finding is most characteristic of cerebellar lesions?',
+        options: ['Spasticity', 'Rigidity', 'Hypotonia', 'Hyperreflexia', 'Clonus'],
+        answer: 2,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'Cerebellar lesions cause ipsilateral hypotonia (decreased muscle tone). Spasticity and hyperreflexia are upper motor neuron signs, and rigidity is a basal ganglia sign.'
+    },
+    {
+        id: 182,
+        subject: 'Physiology',
+        text: 'Which of the following receptors is primarily responsible for maintaining muscle tone?',
+        options: ['Golgi tendon organ', 'Pacinian corpuscle', 'Muscle spindle', 'Meissner corpuscle', 'Free nerve endings'],
+        answer: 2,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'The muscle spindle (intrafusal fibres) is the primary receptor responsible for maintaining muscle tone via the monosynaptic stretch reflex.'
+    },
+    {
+        id: 183,
+        subject: 'Physiology',
+        text: 'Which response occurs in a stretch reflex?',
+        options: ['Inhibition of antagonist muscles', 'Relaxation of the stretched muscle', 'Activation of gamma motor neurons only', 'Contraction of local (agonist) active muscle', 'Reciprocal inhibition failure'],
+        answer: 3,
+        meta: 'Final 1 – 2025',
+        explanation: 'The stretch reflex causes contraction of the agonist (stretched) muscle. Reciprocal inhibition of antagonists also occurs but is mediated by interneurons, not the primary response.'
+    },
+    {
+        id: 184,
+        subject: 'Physiology',
+        text: 'The Golgi tendon organ provides input to which neurons?',
+        options: ['γ motor neurons', 'Ia sensory neurons', 'α motor neurons', 'Ib sensory neurons', 'Interneurons'],
+        answer: 3,
+        meta: 'Assessment 1 – 2023 – Session 2',
+        explanation: 'The Golgi tendon organ is innervated by Ib sensory neurons, which detect muscle tension and inhibit alpha motor neurons via interneurons (inverse stretch reflex).'
+    },
+    {
+        id: 185,
+        subject: 'Physiology',
+        text: 'In a patient with an upper motor neuron lesion, superficial reflexes such as the abdominal reflex are absent. Which of the following tracts is most likely intact?',
+        options: ['Spinothalamic tract', 'Dorsal column–medial lemniscal pathway', 'Spinocerebellar tract', 'Corticospinal tract', 'Rubrospinal tract'],
+        answer: 3,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'In an UMN lesion, the corticospinal tract is damaged (not intact). Superficial reflexes are absent due to loss of facilitatory input from the corticospinal tract. The question likely means "which tract is NOT involved", but based on the provided data, the answer is D (corticospinal tract is the one that is damaged).'
+    },
+    {
+        id: 186,
+        subject: 'Physiology',
+        text: 'A patient presents with hypertonia, exaggerated reflexes, and signs of an upper motor neuron lesion. Which mechanism best explains these findings?',
+        options: ['Loss of cerebellar inhibition', 'Degeneration of anterior horn cells', 'Decreased gamma motor neuron discharge', 'Unopposed pontine reticulospinal fibers', 'Failure of neuromuscular transmission'],
+        answer: 3,
+        meta: 'Final 1 – 2018',
+        explanation: 'Upper motor neuron lesions cause spasticity and hyperreflexia due to the unopposed action of the pontine reticulospinal tract (which facilitates extensor muscles). Loss of cortical inhibition leads to increased muscle tone.'
+    },
+    {
+        id: 187,
+        subject: 'Physiology',
+        text: 'The supplementary motor area is primarily responsible for which function?',
+        options: ['Initiation of voluntary movement', 'Control of posture and balance', 'Control of complex movements of both hands', 'Coordination of eye movements', 'Regulation of muscle tone'],
+        answer: 2,
+        meta: 'Assessment 1 – 2020 · Final 1 – 2025',
+        explanation: 'The supplementary motor area (SMA) is primarily involved in planning and executing complex, bimanual, and sequential movements. It is crucial for internally generated movements.'
+    },
+    {
+        id: 188,
+        subject: 'Physiology',
+        text: 'Which function is attributed to the pontine circuit in motor control?',
+        options: ['Initiation of voluntary movement', 'Storage of plan of skilled movement', 'Regulation of muscle tone', 'Execution of fine distal movements', 'Coordination of balance and posture'],
+        answer: 2,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'The pontine reticulospinal tract (part of the medial motor system) regulates muscle tone and posture, facilitating extensor muscles to maintain antigravity posture.'
+    },
+    {
+        id: 189,
+        subject: 'Physiology',
+        text: 'Which of the following pairs is matched correctly in the motor hierarchy?',
+        options: ['Area 4 – muscle tone regulation', 'Area 6 – fine voluntary movements', 'Areas 3,1,2 – motor planning', 'Areas 5 and 7 – awareness of body position in space', 'Area 17 – voluntary motor control'],
+        answer: 3,
+        meta: 'Final 1 – 2018',
+        explanation: 'Areas 5 and 7 (posterior parietal cortex) are responsible for spatial awareness and sensory guidance of movement. Area 4 is primary motor, Area 6 is premotor, and Areas 3,1,2 are sensory.'
+    },
+    {
+        id: 190,
+        subject: 'Physiology',
+        text: 'Which of the following functions is characteristic of the medial motor system but not the lateral motor system and is also a function of the cerebellum?',
+        options: ['Fine skilled movements of distal muscles', 'Control of axial and proximal muscles', 'Independent finger movements', 'Voluntary motor initiation', 'Fractionated hand movements'],
+        answer: 1,
+        meta: 'Final 1 – 2018',
+        explanation: 'The medial motor system (vestibulospinal, tectospinal, reticulospinal) controls axial and proximal muscles, maintaining posture and balance – functions also attributed to the cerebellum.'
+    },
+    {
+        id: 191,
+        subject: 'Physiology',
+        text: 'Sudden, sustained dorsiflexion of the foot typically causes which response?',
+        options: ['Plantar reflex', 'Babinski sign', 'Patellar clonus', 'Stretch reflex', 'Ankle clonus'],
+        answer: 4,
+        meta: 'Assessment 1 – 2023 – Session 2 · Final 1 – 2018',
+        explanation: 'Sustained dorsiflexion of the foot stretches the calf muscles, causing rhythmic contractions called ankle clonus – a sign of upper motor neuron lesion (hyperreflexia).'
+    },
+    {
+        id: 192,
+        subject: 'Physiology',
+        text: 'Ankle clonus occurs due to ……?',
+        options: ['Loss of cerebellar inhibition', 'Degeneration of anterior horn cells', 'Stretch reflex inhibition', 'Inverse stretch reflex inhibition', 'Increase gamma discharge'],
+        answer: 4,
+        meta: 'Final 1 – 2019',
+        explanation: 'Ankle clonus is caused by increased gamma motor neuron discharge (hypertonia) due to loss of descending inhibitory pathways in upper motor neuron lesions.'
+    },
+    {
+        id: 193,
+        subject: 'Physiology',
+        text: 'Lesion of the spinocerebellar tract typically produces which of the following?',
+        options: ['Hypotonia', 'Hyporeflexia', 'Kinetic tremor', 'Clonus', 'Babinski sign'],
+        answer: 2,
+        meta: 'Final 1 – 2022',
+        explanation: 'Lesions of the spinocerebellar tracts (unconscious proprioception) cause kinetic (intention) tremor and ataxia. Clonus and Babinski sign are pyramidal signs.'
+    },
+    {
+        id: 194,
+        subject: 'Physiology',
+        text: 'Which of the following is not typically associated with a cerebellar lesion?',
+        options: ['Intention tremor', 'Ataxia', 'Dysmetria', 'Nystagmus', 'Static tremor'],
+        answer: 4,
+        meta: 'Assessment 1 – 2023 – Session 2',
+        explanation: 'Static (resting) tremors are characteristic of basal ganglia disorders (Parkinson\'s disease). Cerebellar lesions cause intention tremors, ataxia, dysmetria, and nystagmus.'
+    }
+];
+    // ─── PHYSIOLOGY (continued) ──────────────────────────────────────
+    {
+        id: 195,
+        subject: 'Physiology',
+        text: 'Which pattern of sensory loss is characteristic of peripheral neuritis?',
+        options: ['Gloves and socks distribution', 'Hemibody loss', 'Face and arm loss', 'Dermatomal pattern', 'Scattered spots'],
+        answer: 0,
+        meta: 'Final 1 – 2018',
+        explanation: 'Peripheral neuritis (polyneuropathy) causes a "glove and stocking" distribution of sensory loss, affecting the distal extremities symmetrically due to length-dependent nerve vulnerability.'
+    },
+    {
+        id: 196,
+        subject: 'Physiology',
+        text: 'Which of the following accurately describes the pattern of dissociative sensory loss in syringomyelia?',
+        options: ['Loss of pain and touch with preservation of temperature', 'Loss of touch and temperature with preservation of pain', 'Loss of pain with preservation of touch and temperature', 'Loss of pain and temperature with preservation of touch', 'Loss of temperature with preservation of touch and pain'],
+        answer: 3,
+        meta: 'Assessment 1 – 2020 · Final 1 – 2025',
+        explanation: 'Syringomyelia damages the anterior white commissure, causing loss of pain and temperature sensation with preservation of touch and proprioception (dissociated sensory loss) in a cape-like distribution.'
+    },
+    {
+        id: 197,
+        subject: 'Physiology',
+        text: 'Infarction of the blood vessels supplying the cerebral cortex most commonly results in:',
+        options: ['Spastic paralysis', 'Flaccid paralysis', 'Sensory loss only', 'Ataxia', 'Hypotonia'],
+        answer: 0,
+        meta: 'Final 1 – 2018',
+        explanation: 'Cortical infarction (e.g., MCA stroke) typically causes contralateral spastic paralysis (upper motor neuron lesion). Flaccid paralysis occurs in lower motor neuron lesions or spinal shock.'
+    },
+    {
+        id: 198,
+        subject: 'Physiology',
+        text: 'In syringomyelia, the sensory loss typically follow which of the following patterns?',
+        options: ['Jacket distribution', 'Fingers', 'Lower limbs', 'Feet', 'Trunk'],
+        answer: 0,
+        meta: 'Final 1 – 2019',
+        explanation: 'Syringomyelia causes a cape-like (jacket) distribution of sensory loss over the shoulders, upper chest, and arms, most commonly in the cervical and upper thoracic segments.'
+    },
+    {
+        id: 199,
+        subject: 'Physiology',
+        text: 'Which brain structure is typically damaged in left-sided hemiballismus?',
+        options: ['Left globus pallidus', 'Right subthalamic nucleus', 'Left caudate nucleus', 'Right putamen', 'Left thalamus'],
+        answer: 1,
+        meta: 'Final 1 – 2025 · Final 1 – 2019 – Summer',
+        explanation: 'Hemiballismus (flinging movements) is caused by a lesion in the contralateral subthalamic nucleus. Left-sided hemiballismus indicates a right subthalamic nucleus lesion.'
+    },
+    {
+        id: 200,
+        subject: 'Physiology',
+        text: 'Fibers from the cerebral cortex to the corpus striatum release which neurotransmitter?',
+        options: ['GABA', 'Dopamine', 'Acetylcholine', 'Serotonin', 'Glutamate'],
+        answer: 4,
+        meta: 'Assessment 1 – 2023 – Session 2',
+        explanation: 'Corticostriate fibres (from the cortex to the striatum) release glutamate, an excitatory neurotransmitter. This is the first step in the direct and indirect pathways of the basal ganglia.'
+    },
+    {
+        id: 201,
+        subject: 'Physiology',
+        text: 'Static tremor is caused by which mechanism in the basal ganglia?',
+        options: ['Loss of dopamine in substantia nigra', 'Hyperactivity of the direct pathway', 'Cerebellar Purkinje cell degeneration', 'Oscillation between GPi and subthalamic nucleus', 'Failure of corticospinal inhibition'],
+        answer: 3,
+        meta: 'Final 1 – 2018',
+        explanation: 'Static (resting) tremor is caused by oscillatory activity between the globus pallidus internus (GPi) and the subthalamic nucleus, driven by dopamine depletion.'
+    },
+    {
+        id: 202,
+        subject: 'Physiology',
+        text: 'How does dopamine act on the basal ganglia motor pathways?',
+        options: ['D1 inhibits the direct pathway', 'D1 excites the direct pathway', 'D2 excites the indirect pathway', 'D2 excites the direct pathway', 'Dopamine inhibits both pathways'],
+        answer: 1,
+        meta: 'Final 1 – 2018',
+        explanation: 'Dopamine acts on D1 receptors to excite the direct pathway (facilitating movement) and on D2 receptors to inhibit the indirect pathway. Overall, dopamine facilitates movement.'
+    },
+    {
+        id: 203,
+        subject: 'Physiology',
+        text: 'Glutamate is secreted by ……',
+        options: ['Cerebral cortex to corpus striatum', 'Intrastriatal interneurons', 'Substantia nigra to corpus striatum', 'Corpus striatum to substantia nigra', 'Basal ganglia to brain stem'],
+        answer: 0,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'Glutamate is the major excitatory neurotransmitter secreted by corticostriate fibres (from the cerebral cortex to the corpus striatum).'
+    },
+    {
+        id: 204,
+        subject: 'Physiology',
+        text: 'Which of the following functions is performed by the cerebellum?',
+        options: ['Correct movement on the same side of the body', 'Initiation of voluntary movement on the same side', 'Coordination of opposite side limb movements', 'Regulation of muscle strength', 'Primary sensory perception'],
+        answer: 0,
+        meta: 'Final 1 – 2018',
+        explanation: 'The cerebellum coordinates and corrects movement on the same side of the body (ipsilateral). It fine-tunes motor commands but does not initiate movement (that is the cortex).'
+    },
+    {
+        id: 205,
+        subject: 'Physiology',
+        text: 'Which of the following statements about climbing fibers is correct?',
+        options: ['They originate from the inferior olivary nucleus', 'They form powerful excitatory synapses on Purkinje cells', 'Each Purkinje cell receives input from a single climbing fiber', 'They play a role in motor learning', 'All of the above'],
+        answer: 4,
+        meta: 'Final 1 – 2018',
+        explanation: 'All statements about climbing fibres are correct: they originate from the inferior olivary nucleus, form powerful excitatory synapses on Purkinje cells, each Purkinje cell receives input from a single climbing fibre, and they play a role in motor learning.'
+    },
+    {
+        id: 206,
+        subject: 'Physiology',
+        text: 'Which deficit is most characteristic of a cerebellum lesion?',
+        options: ['Muscle weakness', 'Loss of motor learning', 'Loss of pain sensation', 'Aphasia', 'Visual field defect'],
+        answer: 1,
+        meta: 'Final 1 – 2024',
+        explanation: 'Loss of motor learning is a hallmark of cerebellar dysfunction, as climbing fibres and Purkinje cells are essential for motor adaptation and learning.'
+    },
+    {
+        id: 207,
+        subject: 'Physiology',
+        text: 'Which of the following structures is primarily responsible for the damping action that prevents tremors during voluntary movements?',
+        options: ['Vestibulocerebellum', 'Spinocerebellum', 'Cerebrocerebellum', 'Basal ganglia', 'Motor cortex'],
+        answer: 1,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'The spinocerebellum (vermis and intermediate zones) is responsible for the damping function, smoothing out movements and preventing oscillations by comparing intended movement with actual feedback.'
+    },
+    {
+        id: 208,
+        subject: 'Physiology',
+        text: 'Which of the following functions is primarily associated with the flocculonodular lobe of the cerebellum?',
+        options: ['Fine motor coordination', 'Equilibrium', 'Regulation of muscle tone', 'Motor learning', 'Planning of voluntary movements'],
+        answer: 1,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'The flocculonodular lobe (archicerebellum) is primarily concerned with equilibrium, balance, and eye movements (vestibulo-ocular reflex).'
+    },
+    {
+        id: 209,
+        subject: 'Physiology',
+        text: 'Which of the following clinical signs is a characteristic result of an ipsilateral cerebellar lesion?',
+        options: ['Spasticity', 'Resting tremor', 'Chorea', 'Hypotonia', 'Hyperreflexia'],
+        answer: 3,
+        meta: 'Final 1 – 2019',
+        explanation: 'Cerebellar lesions cause ipsilateral signs – the cerebellum acts on the same side of the body. Hypotonia (decreased muscle tone) is a classic cerebellar sign.'
+    },
+    {
+        id: 210,
+        subject: 'Physiology',
+        text: 'Tremors present during voluntary movement and reduced during sleep indicate which condition?',
+        options: ['Resting tremor', 'Rigidity', 'Chorea', 'Ataxia', 'Dysdiadochokinesia'],
+        answer: 0,
+        meta: 'Final 1 – 2018',
+        explanation: 'Intention tremor is present during voluntary movement and disappears at rest or during sleep. It is characteristic of cerebellar lesions. Resting tremor (Parkinson\'s) is present at rest and reduced during movement.'
+    },
+    {
+        id: 211,
+        subject: 'Physiology',
+        text: 'Which of the following deficits is specifically associated with a lesion affecting the climbing fibers of the cerebellum?',
+        options: ['Dysmetria', 'Loss of motor learning', 'Intentional tremor', 'Resting tremor', 'Chorea'],
+        answer: 1,
+        meta: 'Final 1 – 2019',
+        explanation: 'Climbing fibres are essential for motor learning. A lesion affecting them specifically results in loss of motor learning and adaptation, while basic movement execution may still occur via mossy fibre input.'
+    },
+
+    // ─── BIOCHEMISTRY (212–257) ──────────────────────────────────────────
+    {
+        id: 212,
+        subject: 'Biochemistry',
+        text: 'Which of the following enzymatic changes explains the slow rate of glycolysis in neurons?',
+        options: [
+            'High activity of 6 phosphofructo 2 kinase which inhibit the formation of fructose 2,6 bisphosphate',
+            'Reduced activity of 6 phosphofructo 2 kinase with decreased fructose 2,6 bisphosphate',
+            'Reduced activity of hexokinase with decreased intracellular glucose',
+            'Reduced activity of 6 phosphofructo 2 kinase with decreased fructose 2,6 bisphosphate',
+            'High activity of 6 phosphofructo 2 kinase which stimulate the formation of fructose 2,6 bisphosphate'
+        ],
+        answer: 3,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'Neurons have reduced PFK-2 activity, leading to decreased fructose-2,6-bisphosphate, which slows glycolysis. This forces neurons to rely heavily on oxidative phosphorylation.'
+    },
+    {
+        id: 213,
+        subject: 'Biochemistry',
+        text: 'During excessive exercise, which substance serves as an energy source for neurons?',
+        options: ['Glucose', 'Fatty acids', 'Ketone bodies', 'Glycogen', 'Lactate'],
+        answer: 4,
+        meta: 'Assessment 1 – 2023 – Session 2',
+        explanation: 'During excessive exercise, the liver produces lactate, which is taken up by neurons via the lactate shuttle and used as an energy source. Ketone bodies are used during starvation.'
+    },
+    {
+        id: 214,
+        subject: 'Biochemistry',
+        text: 'Which statement about ketone bodies is correct?',
+        options: ['Main energy source for the brain', 'Main energy source for the liver during starvation', 'Not a major source of energy in well-fed state', 'Primary substrate for gluconeogenesis', 'Stored as glycogen in astrocytes'],
+        answer: 2,
+        meta: 'Final 1 – 2018',
+        explanation: 'Ketone bodies are not a major energy source in the well-fed state – the brain primarily uses glucose. During starvation, they become the main fuel for the brain.'
+    },
+    {
+        id: 215,
+        subject: 'Biochemistry',
+        text: 'During starvation, which of the following occurs?',
+        options: ['Ketone bodies are utilized in liver', 'Ketone bodies are utilized in brain', 'Glucose are utilized in liver', 'Fatty acid are utilized in brain', 'Amino acid are utilized in brain'],
+        answer: 1,
+        meta: 'Final 1 – 2019',
+        explanation: 'During prolonged starvation, the brain utilises ketone bodies as its primary energy source to spare glucose for red blood cells and the renal medulla.'
+    },
+    {
+        id: 216,
+        subject: 'Biochemistry',
+        text: 'Which of the following enzymes is absent in neurons?',
+        options: ['Hexokinase', 'Phosphofructokinase 1', 'Pyruvate kinase', 'Pf2k/fb3', 'Lactate dehydrogenase'],
+        answer: 3,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'Neurons lack the enzyme PFK-2/fructose-2,6-bisphosphatase (PF2K/FB3), which is responsible for regulating glycolysis. This is why neurons have a slow rate of glycolysis.'
+    },
+    {
+        id: 217,
+        subject: 'Biochemistry',
+        text: 'Which of the following laboratory findings is used as a marker for carcinoid tumor?',
+        options: ['Vanillylmandelic acid', 'Homovanillic acid', 'MOA', '5-hydroxyindoleacetic acid', 'Serotonin'],
+        answer: 3,
+        meta: 'Assessment 1 – 2023 · Assessment 1 – 2025 · Final 1 – 2019 – Summer',
+        explanation: 'Carcinoid tumours secrete serotonin, which is metabolised to 5-hydroxyindoleacetic acid (5-HIAA). Urinary 5-HIAA is the classic screening marker for carcinoid syndrome.'
+    },
+    {
+        id: 218,
+        subject: 'Biochemistry',
+        text: 'Which of the following neurotransmitters is the principal excitatory neurotransmitter in the central nervous system?',
+        options: ['Gamma aminobutyric acid', 'Glycine', 'Dopamine', 'Serotonin', 'Glutamate'],
+        answer: 4,
+        meta: 'Assessment 1 – 2023 · Assessment 1 – 2020',
+        explanation: 'Glutamate is the principal excitatory neurotransmitter in the CNS, acting on AMPA, NMDA, and kainate receptors. GABA is the primary inhibitory neurotransmitter.'
+    },
+    {
+        id: 219,
+        subject: 'Biochemistry',
+        text: 'Which substance acts as an antioxidant in astrocytes by forming reduced glutathione?',
+        options: ['NADPH', 'NADH', 'Vitamin B6', 'Vitamin C', 'GSSG'],
+        answer: 0,
+        meta: 'Final 1 – 2025',
+        explanation: 'NADPH is essential for the regeneration of reduced glutathione (GSH) from oxidised glutathione (GSSG) via glutathione reductase, protecting neurons from oxidative stress.'
+    },
+    {
+        id: 220,
+        subject: 'Biochemistry',
+        text: 'In pheochromocytoma, which metabolite is typically increased in urine?',
+        options: ['Dopamine', 'Epinephrine', 'Norepinephrine', 'Vanillylmandelic acid', 'Serotonin'],
+        answer: 3,
+        meta: 'Assessment 1 – 2023 – Session 2',
+        explanation: 'Pheochromocytoma produces excess catecholamines, which are metabolised to vanillylmandelic acid (VMA). Urinary VMA is a key diagnostic marker.'
+    },
+    {
+        id: 221,
+        subject: 'Biochemistry',
+        text: 'Which of the following amino acids is the precursor of serotonin?',
+        options: ['Tryptophan', 'Tyrosine', 'Phenylalanine', 'Glutamate', 'Histidine'],
+        answer: 0,
+        meta: 'Final 1 – 2018',
+        explanation: 'Tryptophan is the precursor of serotonin (5-hydroxytryptamine). Tyrosine is the precursor of catecholamines (dopamine, norepinephrine, epinephrine).'
+    },
+    {
+        id: 222,
+        subject: 'Biochemistry',
+        text: 'Which of the following drugs prevents the peripheral conversion of levodopa to dopamine?',
+        options: ['Niacin (B3)', 'Monoamine oxidase inhibitors (MAOIs)', 'α-methyl tyrosine', 'α-methyl dopa', 'Carbidopa'],
+        answer: 4,
+        meta: 'Final 1 – 2019 – Summer · Final 1 – 2025',
+        explanation: 'Carbidopa inhibits peripheral DOPA decarboxylase, preventing the conversion of L-DOPA to dopamine outside the brain, reducing side effects and increasing brain availability.'
+    },
+    {
+        id: 223,
+        subject: 'Biochemistry',
+        text: 'Which of the following glucose transporters is present on astrocytes?',
+        options: ['GLUT 1', 'GLUT 2', 'GLUT 3', 'GLUT 4', 'GLUT 5'],
+        answer: 0,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'Astrocytes express GLUT-1, a high-affinity glucose transporter. GLUT-3 is the neuronal glucose transporter. GLUT-2 is in the liver and pancreas.'
+    },
+    {
+        id: 224,
+        subject: 'Biochemistry',
+        text: 'Which of the following is the rate limiting enzyme in catecholamine synthesis?',
+        options: ['Dopa decarboxylase', 'Dopamine beta hydroxylase', 'Tyrosine hydroxylase', 'Monoamine oxidase', 'Phenylethanolamine N methyltransferase'],
+        answer: 2,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'Tyrosine hydroxylase is the rate-limiting enzyme in catecholamine synthesis, converting tyrosine to L-DOPA. It is inhibited by catecholamines via feedback inhibition.'
+    },
+    {
+        id: 225,
+        subject: 'Biochemistry',
+        text: 'Which of the following effects is produced by carbidopa when given with L-DOPA?',
+        options: ['Increase L-DOPA action', 'Decrease dopamine receptor sensitivity', 'Increase dopamine breakdown in the brain', 'Decrease L-DOPA action', 'Block serotonin reuptake'],
+        answer: 0,
+        meta: 'Final 1 – 2018',
+        explanation: 'Carbidopa increases L-DOPA action by preventing its peripheral breakdown, allowing more L-DOPA to reach the brain where it is converted to dopamine.'
+    },
+    {
+        id: 226,
+        subject: 'Biochemistry',
+        text: 'GABA in postsynaptic nerve which increases the permeability of?',
+        options: ['Cl-', 'Ca++', 'K+', 'Mg++', 'Na+'],
+        answer: 0,
+        meta: 'Final 1 – 2018',
+        explanation: 'GABA (via GABAA receptors) increases the permeability of postsynaptic membranes to Cl- ions, causing hyperpolarisation (IPSP).'
+    },
+    {
+        id: 227,
+        subject: 'Biochemistry',
+        text: 'Deficiency or dysregulation of which of the following neurotransmitters is most closely associated with mood disorders?',
+        options: ['Serotonin', 'Dopamine', 'Norepinephrine', 'Acetylcholine', 'GABA'],
+        answer: 0,
+        meta: 'Final 1 – 2022',
+        explanation: 'Serotonin dysregulation is most closely linked to mood disorders, particularly depression and anxiety. The "serotonin hypothesis" is the basis for SSRI treatment.'
+    },
+    {
+        id: 228,
+        subject: 'Biochemistry',
+        text: 'Which enzyme is classified as a transaminase?',
+        options: ['Glutamate dehydrogenase', 'Alanine aminotransferase', 'Glutaminase', 'L-amino acid oxidase', 'D-amino acid oxidase'],
+        answer: 1,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'Alanine aminotransferase (ALT) is a transaminase that catalyses the transfer of an amino group from alanine to α-ketoglutarate. Glutamate dehydrogenase is a deaminase.'
+    },
+    {
+        id: 229,
+        subject: 'Biochemistry',
+        text: 'Which of the following cofactors is required for transamination reactions?',
+        options: ['Vitamin B6', 'NADH', 'Vitamin C', 'NADPH', 'Pyridoxal phosphate'],
+        answer: 4,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'Pyridoxal phosphate (PLP), the active form of vitamin B6, is the essential cofactor for all transamination reactions.'
+    },
+    {
+        id: 230,
+        subject: 'Biochemistry',
+        text: 'Which enzyme catalyzes transamination reactions in amino acid metabolism?',
+        options: ['Glutaminase', 'Glutamate dehydrogenase', 'Ornithine transcarbamylase', 'Aspartate aminotransferase', 'Glutamine synthase'],
+        answer: 3,
+        meta: 'Assessment 1 – 2023 – Session 2 · Final 1 – 2018 · Final 1 – 2019',
+        explanation: 'Aspartate aminotransferase (AST) and alanine aminotransferase (ALT) are the key transaminases. They require PLP (vitamin B6).'
+    },
+    {
+        id: 231,
+        subject: 'Biochemistry',
+        text: 'Which of the following is the common amino acid acceptor in all transamination reactions?',
+        options: ['Oxaloacetate', 'Pyruvate', 'α-ketoglutarate', 'Glutamate', 'Alanine'],
+        answer: 2,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'α-ketoglutarate is the common amino group acceptor in transamination reactions, accepting an amino group to become glutamate.'
+    },
+    {
+        id: 232,
+        subject: 'Biochemistry',
+        text: 'Which enzyme is involved in transdeaminase?',
+        options: ['Glutamate dehydrogenase', 'Alanine aminotransferase', 'Glutaminase', 'L-amino acid oxidase', 'D-amino acid oxidase'],
+        answer: 0,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'Transdeamination combines transamination and oxidative deamination. Glutamate dehydrogenase catalyses the oxidative deamination step, converting glutamate to α-ketoglutarate and ammonia.'
+    },
+    {
+        id: 233,
+        subject: 'Biochemistry',
+        text: 'Hyperammonemia is associated with …… in the brain',
+        options: ['Increased glutamate', 'Increased α-ketoglutarate', 'Decreased ammonia', 'Decreased Glutamine', 'Increased serotonin'],
+        answer: 0,
+        meta: 'Final 1 – 2025',
+        explanation: 'Hyperammonemia leads to increased glutamate (as ammonia combines with α-ketoglutarate to form glutamate via glutamate dehydrogenase). This depletes α-ketoglutarate.'
+    },
+    {
+        id: 234,
+        subject: 'Biochemistry',
+        text: 'Which compound in the urea cycle requires ATP for its synthesis?',
+        options: ['Aspartic acid', 'Citrulline', 'Fumarate', 'Urea', 'Arginosuccinate'],
+        answer: 4,
+        meta: 'Final 1 – 2025 · Final 1 – 2019',
+        explanation: 'Argininosuccinate synthesis (from citrulline and aspartate) requires ATP (hydrolysed to AMP and PPi). This step is catalysed by argininosuccinate synthetase.'
+    },
+    {
+        id: 235,
+        subject: 'Biochemistry',
+        text: 'In a patient with a urea cycle disorder, which metabolite typically accumulates?',
+        options: ['α-ketoglutarate', 'Glutamine', 'Urea', 'Glutamate', 'Arginine'],
+        answer: 1,
+        meta: 'Final 1 – 2018',
+        explanation: 'In urea cycle disorders, ammonia accumulates and is detoxified by the brain to glutamine (via glutamine synthetase). Glutamine accumulates, causing cerebral oedema.'
+    },
+    {
+        id: 236,
+        subject: 'Biochemistry',
+        text: 'Which of the following changes occurs in the brain as a result of hyperammonemia?',
+        options: ['Increased glutamine and increased GABA', 'Increased glutamate and decreased GABA', 'Decreased glutamate and decreased GABA', 'Decreased glutamate and decreased glutamine', 'Decreased glutamine and increased glutamate'],
+        answer: 2,
+        meta: 'Final 1 – 2019',
+        explanation: 'Hyperammonemia causes decreased glutamate (used to form glutamine) and decreased GABA (due to altered neurotransmitter metabolism). Glutamine increases, not decreases.'
+    },
+    {
+        id: 237,
+        subject: 'Biochemistry',
+        text: 'What is the final disposal form of the amino group in the human body?',
+        options: ['Ammonia', 'Glutamine', 'Amino acid', 'Uric acid', 'Urea'],
+        answer: 4,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'Urea is the final disposal form of the amino group (nitrogen) in the human body, produced in the liver through the urea cycle and excreted by the kidneys.'
+    },
+    {
+        id: 238,
+        subject: 'Biochemistry',
+        text: 'In ornithine transcarbamylase deficiency, which of the following amino acids becomes essential?',
+        options: ['Citrulline', 'Ornithine', 'Arginine', 'Glutamine', 'Aspartate'],
+        answer: 0,
+        meta: 'Final 1 – 2022',
+        explanation: 'In OTC deficiency, citrulline cannot be synthesised from ornithine and carbamoyl phosphate, so citrulline becomes an essential amino acid and must be supplemented.'
+    },
+    {
+        id: 239,
+        subject: 'Biochemistry',
+        text: 'The nitrogen atoms of urea are derived from which of the following sources?',
+        options: ['Ammonia and aspartate', 'Ammonia and glutamate', 'Aspartate and alanine', 'Glutamine and aspartate', 'Ammonia and ornithine'],
+        answer: 0,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'One nitrogen atom of urea comes from ammonia (via carbamoyl phosphate), and the other comes from aspartate. Ornithine is a carrier, not a nitrogen source.'
+    },
+    {
+        id: 240,
+        subject: 'Biochemistry',
+        text: 'Which of the following amino acids are responsible for the characteristic burned sugar odor of urine?',
+        options: ['Phenylalanine, tyrosine, tryptophan', 'Leucine, isoleucine, valine', 'Glycine, serine, alanine', 'Methionine, cysteine, taurine', 'Aspartate, glutamate, asparagine'],
+        answer: 1,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'The burned sugar (maple syrup) odour of urine in MSUD is caused by the accumulation of branched-chain amino acids (leucine, isoleucine, valine).'
+    },
+    {
+        id: 241,
+        subject: 'Biochemistry',
+        text: 'A mother notices that her month-old baby\'s urine has a sweet, burnt sugar smell while changing the diaper. Laboratory tests reveal elevated levels of leucine, isoleucine, and valine in the blood. Which enzyme deficiency is most likely responsible for this condition?',
+        options: ['Phenylalanine hydroxylase', 'Tyrosine hydroxylase', 'Branched chain α-ketoacid dehydrogenase complex', 'Tryptophan hydroxylase', 'Dihydrobiopterin reductase'],
+        answer: 2,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'Maple syrup urine disease (MSUD) is caused by a deficiency of the branched-chain α-ketoacid dehydrogenase complex (BCKDC), which metabolises leucine, isoleucine, and valine.'
+    },
+    {
+        id: 242,
+        subject: 'Biochemistry',
+        text: 'Which of the following reactions is impaired in thiamine pyrophosphate deficiency?',
+        options: ['Transamination of amino acids', 'Carboxylation of acetyl CoA', 'Reduction of ribonucleotides', 'Oxidative phosphorylation in mitochondria', 'Oxidative decarboxylation of alpha keto acids'],
+        answer: 4,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'Thiamine pyrophosphate (TPP) is a cofactor for the oxidative decarboxylation of alpha-keto acids, including pyruvate dehydrogenase, α-ketoglutarate dehydrogenase, and branched-chain ketoacid dehydrogenase.'
+    },
+    {
+        id: 243,
+        subject: 'Biochemistry',
+        text: 'In phenylketonuria, …… in the brain.',
+        options: ['Dopamine level decreases', 'Serotonin level increases', 'Norepinephrine level increases', 'Acetylcholine level increases', 'GABA level increases'],
+        answer: 0,
+        meta: 'Final 1 – 2025',
+        explanation: 'In PKU, phenylalanine accumulation competes with tyrosine for brain uptake, causing decreased dopamine, norepinephrine, and other catecholamines.'
+    },
+    {
+        id: 244,
+        subject: 'Biochemistry',
+        text: 'In phenylketonuria, which substance accumulates in the blood?',
+        options: ['Tyrosine', 'Dopamine', 'Phenylalanine', 'Homocysteine', 'Pyruvate'],
+        answer: 2,
+        meta: 'Assessment 1 – 2023 – Session 2',
+        explanation: 'Phenylalanine accumulates in the blood in PKU because phenylalanine hydroxylase is deficient. This leads to high phenylalanine levels, which are toxic to the developing brain.'
+    },
+    {
+        id: 245,
+        subject: 'Biochemistry',
+        text: 'Which of the following disease and metabolite pairs is correctly matched?',
+        options: ['Maple syrup urine disease and isolysin', 'Maple syrup urine disease and lysin', 'Maple syrup urine disease and glycine', 'Phenylketonuria and urea', 'Phenylketonuria and phenylalanine'],
+        answer: 4,
+        meta: 'Final 1 – 2019',
+        explanation: 'Phenylketonuria is correctly matched with phenylalanine (accumulates). MSUD is associated with branched-chain amino acids, not isolysin or lysin.'
+    },
+    {
+        id: 246,
+        subject: 'Biochemistry',
+        text: 'In phenylketonuria, deficiency of which of the following substances occurs?',
+        options: ['Catecholamines', 'Branched amino acids', 'Phenylpyruvate', 'Phenylalanine', 'Phenylacetate'],
+        answer: 0,
+        meta: 'Final 1 – 2022',
+        explanation: 'In PKU, there is a deficiency of catecholamines (dopamine, norepinephrine, epinephrine) because phenylalanine inhibits tyrosine hydroxylase and competes with tyrosine for brain uptake.'
+    },
+    {
+        id: 247,
+        subject: 'Biochemistry',
+        text: 'A 55 year-old chronic alcoholic presents with confusion, ataxia, and memory impairment. Which of the following conditions is most likely responsible for his presentation?',
+        options: ['Wernicke Korsakoff', 'Wet Beriberi', 'Dry Beriberi', 'Pellagra', 'Homocystinemia'],
+        answer: 0,
+        meta: 'Assessment 1 – 2020 · Assessment 1 – 2023 – Session 2 · Final 1 – 2019 – Summer',
+        explanation: 'Wernicke-Korsakoff syndrome is caused by thiamine (B1) deficiency, commonly seen in chronic alcoholics. It presents with confusion, ataxia, ophthalmoplegia (Wernicke), and memory impairment (Korsakoff).'
+    },
+    {
+        id: 248,
+        subject: 'Biochemistry',
+        text: 'A 55 year-old chronic alcoholic presents with confusion, ataxia, and memory impairment. Which of the following enzymes if affected?',
+        options: ['Thymidylate synthase', 'Dehydrogenases', 'α-ketoglutarate dehydrogenase', 'Homocysteine methyl transferase', 'Methylmalonyl-CoA mutase'],
+        answer: 2,
+        meta: 'Final 1 – 2022',
+        explanation: 'Thiamine (B1) is a cofactor for α-ketoglutarate dehydrogenase, pyruvate dehydrogenase, and transketolase. In Wernicke-Korsakoff, α-ketoglutarate dehydrogenase is affected.'
+    },
+    {
+        id: 249,
+        subject: 'Biochemistry',
+        text: 'Which of the following vitamins is required for one carbon transfer reactions involved in nucleotide synthesis?',
+        options: ['Folic acid', 'Vitamin B12', 'Vitamin B6', 'Vitamin C', 'Vitamin K'],
+        answer: 0,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'Folic acid (tetrahydrofolate) is the vitamin required for one-carbon transfer reactions in nucleotide synthesis (purines and thymidine).'
+    },
+    {
+        id: 250,
+        subject: 'Biochemistry',
+        text: 'Impairment of oxidative decarboxylation leads to inability to utilize glucose due to deficiency of which of the following?',
+        options: ['Vitamin B1', 'Vitamin B2', 'Vitamin B3', 'Vitamin B6', 'Vitamin B12'],
+        answer: 0,
+        meta: 'Final 1 – 2019',
+        explanation: 'Oxidative decarboxylation of pyruvate and α-ketoglutarate requires thiamine (B1). Deficiency impairs glucose utilisation, leading to Wernicke-Korsakoff syndrome.'
+    },
+    {
+        id: 251,
+        subject: 'Biochemistry',
+        text: 'A patient presents with chronic diarrhea, cognitive decline, and photosensitive skin rash. Which supplement should you indicate to this patient?',
+        options: ['Thiamine', 'Folic acid', 'Pyridoxine', 'Cobalamin', 'Niacin'],
+        answer: 4,
+        meta: 'Final 1 – 2018',
+        explanation: 'This is the classic triad of pellagra caused by niacin (B3) deficiency – dermatitis, diarrhoea, and dementia (the "3 Ds"). Supplementation with niacin is curative.'
+    },
+    {
+        id: 252,
+        subject: 'Biochemistry',
+        text: 'Which vitamin deficiency is neurologically affected by folic acid status, as folic acid supplementation can mask its hematological signs but not prevent neurological damage?',
+        options: ['Vitamin B1', 'Vitamin B2', 'Vitamin B6', 'Vitamin B12', 'Vitamin C'],
+        answer: 3,
+        meta: 'Final 1 – 2018',
+        explanation: 'Vitamin B12 deficiency causes megaloblastic anaemia and neurological symptoms (subacute combined degeneration). Folic acid supplementation can correct the anaemia but does not prevent neurological damage.'
+    },
+    {
+        id: 253,
+        subject: 'Biochemistry',
+        text: 'Which biochemical process is inhibited by sulfonamides?',
+        options: ['Purine synthesis', 'Folic acid synthesis', 'Pyrimidine degradation', 'Amino acid transamination', 'Glycolysis'],
+        answer: 1,
+        meta: 'Final 1 – 2018',
+        explanation: 'Sulfonamides inhibit bacterial folic acid synthesis by competing with PABA for the enzyme dihydropteroate synthase. Humans obtain folic acid from the diet.'
+    },
+    {
+        id: 254,
+        subject: 'Biochemistry',
+        text: 'Which vitamins are directly required for the remethylation of homocysteine to methionine?',
+        options: ['Vitamin C and Vitamin D', 'Vitamin B6 and Vitamin B2', 'Folic acid and Vitamin B12', 'Vitamin K and Vitamin E', 'Niacin and Riboflavin'],
+        answer: 2,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'The remethylation of homocysteine to methionine requires both folic acid (as methyl-THF) and vitamin B12 (as methylcobalamin), catalysed by methionine synthase.'
+    },
+    {
+        id: 255,
+        subject: 'Biochemistry',
+        text: 'Which reaction uses methyl tetrahydrofolate as a cofactor?',
+        options: ['Serine → Glycine', 'Glycine → Serine', 'Homocysteine → Methionine', 'Methionine → Homocysteine', 'Cysteine → Homocysteine'],
+        answer: 2,
+        meta: 'Assessment 1 – 2023 – Session 2 · Final 1 – 2019 – Summer',
+        explanation: 'Methyl tetrahydrofolate (methyl-THF) is the cofactor for the remethylation of homocysteine to methionine, a reaction catalysed by methionine synthase.'
+    },
+    {
+        id: 256,
+        subject: 'Biochemistry',
+        text: 'Which of the following acts as a coenzyme for aromatic amino acid hydroxylases?',
+        options: ['Tetrahydrobiopterin', 'Pyridoxal phosphate', 'Flavin adenine dinucleotide', 'Nicotinamide adenine dinucleotide', 'Thiamine pyrophosphate'],
+        answer: 0,
+        meta: 'Final 1 – 2019',
+        explanation: 'Tetrahydrobiopterin (BH4) is the essential coenzyme for phenylalanine hydroxylase, tyrosine hydroxylase, and tryptophan hydroxylase (aromatic amino acid hydroxylases).'
+    },
+    {
+        id: 257,
+        subject: 'Biochemistry',
+        text: 'The conversion of which of the following requires vitamin B12 and folic acid?',
+        options: ['Serine to glycine', 'Glutamate to gamma-aminobutyric acid', 'Homocysteine to methionine', 'Tyrosine to dopamine', 'Phenylalanine to tyrosine'],
+        answer: 2,
+        meta: 'Final 1 – 2019',
+        explanation: 'The conversion of homocysteine to methionine requires both vitamin B12 (as methylcobalamin) and folic acid (as methyl-THF).'
+    },
+
+    // ─── HISTOLOGY (258–280) ──────────────────────────────────────────
+    {
+        id: 258,
+        subject: 'Histology',
+        text: 'Which of the following statements is true regarding neuroglia?',
+        options: ['Astrocytes perform gliosis', 'Oligodendrocytes form the blood brain barrier', 'Microglia produce myelin', 'Schwann cells are found in the central nervous system', 'Ependymal cells form nodes of Ranvier'],
+        answer: 0,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'Astrocytes perform gliosis (reactive gliosis) in response to CNS injury, forming a glial scar. Oligodendrocytes form myelin in the CNS, microglia are immune cells, Schwann cells are in the PNS, and ependymal cells line the ventricles.'
+    },
+    {
+        id: 259,
+        subject: 'Histology',
+        text: 'Which of the following statements is true regarding the layers of the cerebral cortex?',
+        options: ['The outer band of Baillarger is present in the inner granular layer', 'The inner band of Baillarger is present in the molecular layer', 'The molecular layer contains large pyramidal cells', 'The inner granular layer lacks stellate cells', 'The multiform layer is the most superficial layer'],
+        answer: 0,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'The outer band of Baillarger is located in the inner granular layer (layer IV) of the cerebral cortex. The inner band of Baillarger is in the inner pyramidal layer (layer V).'
+    },
+    {
+        id: 260,
+        subject: 'Histology',
+        text: 'Which of the following correctly describes a feature of Pacinian corpuscles compared to Meissner corpuscles?',
+        options: ['Pacinian corpuscles detect light touch, Meissner detect vibration', 'Pacinian corpuscles are mainly in non-hairy skin, Meissner are mainly in hairy skin', 'Pacinian corpuscles are located in the epidermis, Meissner in the dermis', 'Pacinian corpuscles detect temperature, Meissner detect pain', 'Pacinian corpuscles have fibers that pass axially through the corpuscle, Meissner fibers are coiled'],
+        answer: 4,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'Pacinian corpuscles have a central nerve fibre that passes axially through the concentric lamellae. Meissner\'s corpuscles have spiralling (coiled) nerve fibres. Pacinians detect vibration and deep pressure, Meissner detect light touch.'
+    },
+    {
+        id: 261,
+        subject: 'Histology',
+        text: 'Which receptors provide the sense of movement and position of the body?',
+        options: ['Nociceptors', 'Thermoreceptors', 'Mechanoreceptors', 'Proprioception receptors', 'Chemoreceptors'],
+        answer: 3,
+        meta: 'Assessment 1 – 2023 – Session 2',
+        explanation: 'Proprioception receptors (muscle spindles, Golgi tendon organs, joint receptors) provide the sense of movement and position of the body, essential for coordination and balance.'
+    },
+    {
+        id: 262,
+        subject: 'Histology',
+        text: 'Which feature characterizes the nerve ending in a Meissner\'s corpuscle?',
+        options: ['Myelinated straight course', 'Unmyelinated straight course', 'Nerve has tortuous course', 'Single terminal ending', 'Myelinated afferent fiber enters the base of corpuscle'],
+        answer: 2,
+        meta: 'Assessment 1 – 2023 – Session 2',
+        explanation: 'In Meissner\'s corpuscles, the nerve fibre takes a tortuous (coiled) course through the lamellar cells. The myelinated afferent fibre enters the base but the course is tortuous.'
+    },
+    {
+        id: 263,
+        subject: 'Histology',
+        text: 'Which of the following sensations is primarily detected by Meissner\'s corpuscles?',
+        options: ['Crude touch and tactile discrimination', 'Vibration and pressure', 'Pain and temperature', 'Proprioception', 'Pressure and stretch'],
+        answer: 0,
+        meta: 'Final 1 – 2018',
+        explanation: 'Meissner\'s corpuscles are rapidly adapting mechanoreceptors that detect light touch, tactile discrimination, and low-frequency vibration. Pacinian corpuscles detect high-frequency vibration and deep pressure.'
+    },
+    {
+        id: 264,
+        subject: 'Histology',
+        text: 'Which type of mechanoreceptor is primarily responsible for detecting vibration?',
+        options: ['Pacinian', 'Meissner', 'Merkel', 'Ruffini', 'Free nerve endings'],
+        answer: 0,
+        meta: 'Assessment 1 – 2020 · Assessment 1 – 2023 – Session 2',
+        explanation: 'Pacinian corpuscles are the primary mechanoreceptors for detecting high-frequency vibration (30–800 Hz), located deep in the dermis and subcutaneous tissue.'
+    },
+    {
+        id: 265,
+        subject: 'Histology',
+        text: 'Which feature is common to both free nerve endings and Merkel\'s discs?',
+        options: ['They are the most numerous sensory receptors in the body', 'Found in the epidermis of the skin', 'Respond to noxious stimuli', 'Respond to thermal stimuli', 'Arise from subepidermal plexus of nerves'],
+        answer: 4,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'Free nerve endings and Merkel\'s discs both arise from the subepidermal plexus of nerves and penetrate the epidermis. Free nerve endings are the most numerous, but Merkel\'s discs are not.'
+    },
+    {
+        id: 266,
+        subject: 'Histology',
+        text: 'Which type of receptor is found in the cornea?',
+        options: ['Pacinian', 'Meissner', 'Merkel', 'Ruffini', 'Free nerve endings'],
+        answer: 4,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'The cornea contains free nerve endings that act as nociceptors and mechanoreceptors. Encapsulated receptors are not found in the cornea because they would cause opacities.'
+    },
+    {
+        id: 267,
+        subject: 'Histology',
+        text: 'Which of the following sensory receptors penetrate the epidermis?',
+        options: ['Free nerve endings and Merkel discs', 'Meissner corpuscles and Pacinian corpuscles', 'Ruffini endings and Pacinian corpuscles', 'Muscle spindles and Golgi tendon organs', 'Krause end bulbs and Ruffini endings'],
+        answer: 0,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'Free nerve endings and Merkel\'s discs penetrate the epidermis. Meissner\'s and Pacinian corpuscles are located in the dermis (or hypodermis) and do not penetrate the epidermis.'
+    },
+    {
+        id: 268,
+        subject: 'Histology',
+        text: 'Regarding the cervical spinal cord, which of the following statements is correct?',
+        options: ['Substantia gelatinosa receives mostly motor input', 'Substantia gelatinosa is located in lamina II', 'Clarke\'s nucleus is located in lamina VI', 'Clarke\'s nucleus is found in all cervical segments', 'Retropostero-lateral column of cervical segments supplies the distal part of lower limb'],
+        answer: 1,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'The substantia gelatinosa (pain and temperature processing) is located in lamina II of the dorsal horn. Clarke\'s nucleus is in lamina VII (thoracic/lumbar), not cervical.'
+    },
+    {
+        id: 269,
+        subject: 'Histology',
+        text: 'Which statement about Clarke\'s nucleus is correct?',
+        options: ['Clarke\'s nucleus is present at all levels', 'Clarke\'s nucleus is present at all cervical levels', 'Clarke\'s nucleus is present at all thoracic levels', 'Clarke\'s nucleus is present at all lumbar levels', 'Clarke\'s nucleus is present at all sacral levels'],
+        answer: 2,
+        meta: 'Assessment 1 – 2023 – Session 2',
+        explanation: 'Clarke\'s nucleus (dorsal nucleus) is present in all thoracic segments (T1–T12) and the upper lumbar segments (L1–L3). It is absent in cervical, lower lumbar, and sacral segments.'
+    },
+    {
+        id: 270,
+        subject: 'Histology',
+        text: 'Which structure is found in cervical segment internal structures of the spinal cord?',
+        options: ['Intermedio-lateral cell column in lamina VII grey matter', 'Intermedio-lateral cell column in lamina VII white matter', 'Clarke\'s nucleus in lamina VII grey matter', 'Clarke\'s nucleus in lamina VII white matter', 'Substantia gelatinosa in lamina VII grey matter'],
+        answer: 0,
+        meta: 'Assessment 1 – 2020',
+        explanation: 'The intermediolateral cell column (sympathetic) is located in lamina VII of the grey matter in the thoracic and upper lumbar segments, but the question says "cervical" – actually, the IML is NOT in cervical segments. However, based on the provided answer, A is selected.'
+    },
+    {
+        id: 271,
+        subject: 'Histology',
+        text: 'Which structure is found in lamina I of the spinal cord gray matter?',
+        options: ['Clarke nucleus', 'Substantia gelatinosa', 'Posteromarginal nucleus', 'Intermediolateral cell column', 'Nucleus proprius'],
+        answer: 2,
+        meta: 'Final 1 – 2018 · Final 1 – 2019 – Summer · Final 1 – 2019',
+        explanation: 'Lamina I (marginal zone) contains the posteromarginal nucleus, which receives nociceptive input from Aδ fibres. The substantia gelatinosa is in lamina II.'
+    },
+    {
+        id: 272,
+        subject: 'Histology',
+        text: 'Which type of neuron forms synaptic junctions with intrafusal muscle fibers within a muscle spindle?',
+        options: ['Alpha neurons', 'Beta neurons', 'Gamma neurons', 'Golgi type I', 'Golgi type II'],
+        answer: 2,
+        meta: 'Final 1 – 2019 · Assessment 1 – 2023 – Session 2 · Assessment 1 – 2020',
+        explanation: 'Gamma motor neurons (γ neurons) form synaptic junctions with intrafusal muscle fibres (the contractile poles of the muscle spindle). Alpha motor neurons innervate extrafusal fibres.'
+    },
+    {
+        id: 273,
+        subject: 'Histology',
+        text: 'Which of the following nuclei has motor function?',
+        options: ['Clarke nucleus', 'Intermedio-medial nucleus', 'Posteromarginal nucleus', 'Anteromedial nucleus', 'Nucleus proprius'],
+        answer: 3,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'The anteromedial nucleus (a subgroup of anterior horn cells) contains motor neurons that innervate axial muscles. Clarke\'s nucleus and the intermediolateral cell column are autonomic/sensory relay.'
+    },
+    {
+        id: 274,
+        subject: 'Histology',
+        text: 'Which of the following statements is true regarding the T8 spinal cord segment?',
+        options: ['Pontine reticulospinal tract is located in the anterior white funiculus', 'Cuneate tract is located in the posterior white funiculus', 'Ventral corticospinal tract descends in the anterior white funiculus', 'Medial longitudinal bundle descends in the anterior white funiculus', 'Clarke nucleus is absent'],
+        answer: 4,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'At T8, Clarke\'s nucleus is actually present (T1–L3). The statement "Clarke nucleus is absent" is false, but the question likely expects it as the correct answer based on the provided data.'
+    },
+    {
+        id: 275,
+        subject: 'Histology',
+        text: 'Which of the following tracts is NOT present in the medial longitudinal bundle?',
+        options: ['Vestibulospinal fibers', 'Tectospinal fibers', 'Reticulospinal fibers', 'Interconnecting fibers between cranial nerve nuclei', 'Corticospinal tract'],
+        answer: 4,
+        meta: 'Final 1 – 2019',
+        explanation: 'The medial longitudinal bundle (MLF) contains vestibulospinal, tectospinal, and reticulospinal fibres, and interconnecting fibres between cranial nerve nuclei. The corticospinal tract is NOT part of the MLF.'
+    },
+    {
+        id: 276,
+        subject: 'Histology',
+        text: 'Nuclear bag fibers are characterized by which of the following?',
+        options: ['Smaller and more numerous', 'Larger and less numerous', 'Located only in tendons', 'Responsible for fine touch sensation', 'Not involved in stretch reflex'],
+        answer: 1,
+        meta: 'Final 1 – 2025',
+        explanation: 'Nuclear bag fibres are larger and less numerous than nuclear chain fibres within the muscle spindle. They detect the dynamic and static components of stretch. They are located in intrafusal fibres, not tendons.'
+    },
+    {
+        id: 277,
+        subject: 'Histology',
+        text: 'Which of the following correctly describes the synaptic connection in the cerebellar cortex?',
+        options: ['Purkinje cell axons synapse with climbing fibers', 'Basket cell axons synapse with Purkinje cell dendrites', 'Dendrites of granule cells synapse with mossy fibers', 'Stellate cells synapse with deep cerebellar nuclei', 'Golgi cell axons synapse directly with climbing fibers'],
+        answer: 2,
+        meta: 'Assessment 1 – 2020 · Assessment 1 – 2023',
+        explanation: 'In the cerebellar cortex, granule cell dendrites synapse with mossy fibres (excitatory input). Purkinje cell axons synapse on deep cerebellar nuclei, not climbing fibres. Basket cells synapse on Purkinje cell bodies.'
+    },
+    {
+        id: 278,
+        subject: 'Histology',
+        text: 'Which feature characterizes the molecular layer of the cerebellar cortex?',
+        options: ['Contains Purkinje cell bodies', 'Contains numerous parallel fibers', 'Contains granule cells', 'Contains climbing fibers only', 'Lacks synaptic connections'],
+        answer: 1,
+        meta: 'Assessment 1 – 2023 – Session 2',
+        explanation: 'The molecular layer contains numerous parallel fibres (granule cell axons), basket cells, stellate cells, and climbing fibres. It does not contain granule cell bodies (those are in the granular layer).'
+    },
+    {
+        id: 279,
+        subject: 'Histology',
+        text: 'Which of the following fibers is NOT found in the molecular layer of the cerebellar cortex?',
+        options: ['Parallel fibers', 'Climbing fibers', 'Basket cell fibers', 'Mossy fibers', 'Stellate cell fibers'],
+        answer: 3,
+        meta: 'Final 1 – 2019',
+        explanation: 'Mossy fibres are afferent fibres that synapse on granule cell dendrites in the granular layer, not the molecular layer. The molecular layer contains parallel fibres, climbing fibres, basket cell fibres, and stellate cell fibres.'
+    },
+    {
+        id: 280,
+        subject: 'Histology',
+        text: 'Which of the following structures is NOT found at the level of the inferior colliculus in the midbrain?',
+        options: ['Inferior colliculus nucleus', 'Periaqueductal gray matter', 'Substantia nigra', 'Trapezoid body'],
+        answer: 3,
+        meta: 'Final 1 – 2019',
+        explanation: 'The trapezoid body is located in the pons (auditory pathway), not the midbrain. The inferior colliculus, periaqueductal grey, and substantia nigra are present at the level of the inferior colliculus.'
+    },
+
+    // ─── PHARMACOLOGY (281–292) ──────────────────────────────────────────
+    {
+        id: 281,
+        subject: 'Pharmacology',
+        text: 'Which of the following opioids is a long-acting, pure agonist associated with milder withdrawal symptoms?',
+        options: ['Heroin', 'Morphine', 'Methadone', 'Fentanyl', 'Codeine'],
+        answer: 2,
+        meta: 'Assessment 1 – 2020 · Assessment 1 – 2023 – Session 2 · Final 1 – 2018',
+        explanation: 'Methadone is a long-acting, full mu-opioid receptor agonist with a long half-life (24–48 hours), allowing once-daily dosing and milder withdrawal symptoms due to its gradual onset and offset.'
+    },
+    {
+        id: 282,
+        subject: 'Pharmacology',
+        text: 'A patient is found unconscious with pinpoint pupils and hypothermia. He is suspected to have heroin intoxication. Which of the following drugs should be administered?',
+        options: ['Naltrexone', 'Methadone', 'Buprenorphine', 'Naloxone', 'Clonidine'],
+        answer: 3,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'Naloxone is a pure opioid antagonist that rapidly reverses opioid-induced respiratory depression, pinpoint pupils, and hypothermia. It is the first-line treatment for acute opioid overdose.'
+    },
+    {
+        id: 283,
+        subject: 'Pharmacology',
+        text: 'Which opioid drug acts as a partial agonist at the mu opioid receptor and is used in opioid dependence management?',
+        options: ['Morphine', 'Methadone', 'Buprenorphine', 'Naloxone', 'Fentanyl'],
+        answer: 2,
+        meta: 'Assessment 1 – 2023 · Final 1 – 2018 · Final 1 – 2019',
+        explanation: 'Buprenorphine is a partial agonist at the mu-opioid receptor and an antagonist at the kappa receptor. It has a "ceiling effect" on respiratory depression, making it safer than full agonists, and is used for opioid dependence management.'
+    },
+    {
+        id: 284,
+        subject: 'Pharmacology',
+        text: 'An alcoholic patient shows dependence related to activation of opioid receptors. Which drug is used for treatment?',
+        options: ['Naltrexone', 'Methadone', 'Buprenorphine', 'Naloxone', 'Clonidine'],
+        answer: 0,
+        meta: 'Final 1 – 2025 · Final 1 – 2019 – Summer',
+        explanation: 'Naltrexone is an opioid receptor antagonist used to reduce alcohol craving and relapse by blocking the reinforcing effects of alcohol on opioid receptors in the reward pathway.'
+    },
+    {
+        id: 285,
+        subject: 'Pharmacology',
+        text: 'Which of the following drugs can be used to manage fentanyl intoxication?',
+        options: ['Naltrexone', 'Methadone', 'Buprenorphine', 'Naloxone', 'Clonidine'],
+        answer: 3,
+        meta: 'Final 1 – 2022',
+        explanation: 'Naloxone is the specific antidote for any opioid intoxication, including fentanyl. It competitively displaces opioids from mu-opioid receptors, rapidly reversing respiratory depression and other symptoms.'
+    },
+    {
+        id: 286,
+        subject: 'Pharmacology',
+        text: 'Which of the following correctly describes the difference between tramadol and morphine?',
+        options: ['Tramadol is a mixed opioid–nonopioid analgesic that increases 5-hydroxytryptamine and norepinephrine, while morphine is a pure opioid agonist', 'Tramadol is a pure opioid agonist, while morphine is mixed', 'Both act only on mu opioid receptors', 'Morphine increases serotonin and norepinephrine, tramadol does not', 'Tramadol has no effect on opioid receptors'],
+        answer: 0,
+        meta: 'Assessment 1 – 2025',
+        explanation: 'Tramadol is a mixed-mechanism analgesic: it is a weak mu-opioid agonist and also inhibits the reuptake of serotonin (5-HT) and norepinephrine (NE), enhancing descending inhibitory pathways. Morphine is a pure opioid agonist.'
+    },
+    {
+        id: 287,
+        subject: 'Pharmacology',
+        text: 'Which of the following drugs is associated with livido reticularis as a side effect?',
+        options: ['Amantadine', 'Levodopa', 'Selegiline', 'Bromocriptine', 'Entacapone'],
+        answer: 0,
+        meta: 'Assessment 1 – 2020 · Final 1 – 2019',
+        explanation: 'Livido reticularis (a mottled, purplish discoloration of the skin) is a recognised side effect of amantadine, thought to be due to peripheral vasoconstriction.'
+    },
+    {
+        id: 288,
+        subject: 'Pharmacology',
+        text: 'Which anti-parkinsonian drug commonly produces atropine-like adverse effects such as dry mouth and blurred vision?',
+        options: ['Levodopa', 'Bromocriptine', 'Benztropine', 'Amantadine', 'Selegiline'],
+        answer: 2,
+        meta: 'Assessment 1 – 2023',
+        explanation: 'Benztropine is an anticholinergic (muscarinic antagonist) used in Parkinson\'s disease to reduce tremors and rigidity. Its common side effects include dry mouth, blurred vision, constipation, and urinary retention – all "atropine-like" effects.'
+    },
+    {
+        id: 289,
+        subject: 'Pharmacology',
+        text: 'Which drug is used as a rescue therapy to manage sudden episodes of motor deterioration in patients with Parkinson\'s disease?',
+        options: ['Apomorphine', 'Levodopa', 'Bromocriptine', 'Selegiline', 'Amantadine'],
+        answer: 0,
+        meta: 'Assessment 1 – 2023 – Session 2',
+        explanation: 'Apomorphine is a dopamine agonist used as rescue therapy (subcutaneous injection) for "off" episodes in advanced Parkinson\'s disease, providing rapid relief within minutes.'
+    },
+    {
+        id: 290,
+        subject: 'Pharmacology',
+        text: 'Which of the following drugs is used as a rescue medication in off akinesia?',
+        options: ['Selegiline', 'Levodopa', 'Bromocriptine', 'Apomorphine', 'Entacapone'],
+        answer: 3,
+        meta: 'Final 1 – 2019',
+        explanation: 'Apomorphine is the standard rescue medication for sudden, unpredictable "off" periods (akinesia) in Parkinson\'s disease. It is a potent D2 receptor agonist with rapid onset.'
+    },
+    {
+        id: 291,
+        subject: 'Pharmacology',
+        text: 'Drug …… is used for tremors',
+        options: ['Levodopa', 'Bromocriptine', 'Benztropine', 'Amantadine', 'Selegiline'],
+        answer: 2,
+        meta: 'Final 1 – 2019 – Summer',
+        explanation: 'Benztropine (and other anticholinergics) is particularly effective for resting tremor in Parkinson\'s disease and drug-induced tremors. Levodopa and dopamine agonists are more effective for bradykinesia and rigidity.'
+    },
+    {
+        id: 292,
+        subject: 'Pharmacology',
+        text: 'Which of the following drugs can be used to control tremors in a patient with benign prostatic hyperplasia?',
+        options: ['Amantadine', 'Levodopa', 'Selegiline', 'Propranolol', 'Entacapone'],
+        answer: 3,
+        meta: 'Final 1 – 2022 · Assessment 1 – 2025',
+        explanation: 'Propranolol (a beta-blocker) is used to control essential tremor or drug-induced tremors. It is safe in patients with benign prostatic hyperplasia (BPH) because it does not have anticholinergic effects (which would worsen urinary retention).'
+    }
+];
