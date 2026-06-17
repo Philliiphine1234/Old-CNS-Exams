@@ -12,6 +12,10 @@
 
         <!-- header -->
         <div class="quiz-header">
+            <div style="font-size:14px; color:var(--text-light); display:flex; gap:20px; margin-top:4px;">
+    <span>🌐 Total visits: <strong id="totalVisitors">0</strong></span>
+    <span>👤 Unique visitors: <strong id="uniqueVisitors">0</strong></span>
+
             <div class="quiz-title">🧠 CNS <span>Paper 1</span></div>
             <div style="display:flex; gap:10px; align-items:center;">
                 <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌓</button>
@@ -20,7 +24,7 @@
                 </div>
             </div>
         </div>
-
+</div>
         <!-- subject tabs -->
         <div class="subject-tabs" id="subjectTabs">
             <button class="subject-btn active" data-subject="all">All <span class="subject-count" id="countAll">0</span></button>
